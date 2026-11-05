@@ -1,0 +1,25 @@
+## Build and Binary Directories
+[Bb]in/
+[Oo]bj/
+[Pp]ackages/*
+!packages/repositories.config
+
+## Keep custom non-NuGet libraries
+!lib/
+!lib/*.dll
+
+## Visual Studio & IDE local caches
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Web Scraper and Temporary leftovers
+hts-cache/
+*.log
+
+## App Specific Uploads / Logs
+Uploads/Temp/
+App_Data/*.ldf
+App_Data/*.mdf
