@@ -1,0 +1,287 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HQ_Operations/HQ_Operations.Master" AutoEventWireup="true" CodeBehind="Work_Order_Creation.aspx.cs" Inherits="Markss_Retail_Suite.HQ_Operations.Work_Order_Creation" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Retail Suite | HQ Operations | Garment Work Order Creation</title>
+    <style type="text/css">
+        div.dt-buttons {
+            position: relative;
+        }        
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<span page-id="Procurement_Management" id="find_page"></span>
+<span page-id2="Work_Order_Creation" id="find_page2"></span>
+
+<asp:ScriptManager ID="ScriptManager2" runat="server" >
+</asp:ScriptManager>
+
+<asp:HiddenField ID="hfSidebarOpen" runat="server"/>
+
+<asp:UpdatePanel ID="UpdatePanel2" runat="server" >
+<ContentTemplate>
+
+    <div class="toolbar py-5 pb-lg-5" id="kt_toolbar">
+        <div id="kt_toolbar_container" class=" container-xxl  d-flex flex-stack flex-wrap">
+            <div class="page-title d-flex flex-column me-3 flex-start">
+               <h1 class="d-flex text-white m-0 fs-3">
+                   <asp:Label ID="lblMenuName" runat="server" Text="HQ Operations"></asp:Label>
+                   <span class="h-20px border-gray-500 border-start mx-3"></span>
+                   <asp:Label ID="lblHQPageName" runat="server" Text="Garment Work Order Creation"></asp:Label>      
+               </h1>
+            </div>
+
+            <div class="page-title d-flex flex-column me-3 flex-end">
+                <%--<h1 class="d-flex text-white m-0 fs-3 text-uppercase">Markss Retail Suite</h1>--%>
+            </div>
+        </div>
+    </div>
+    <div id="kt_content_container" class="d-flex flex-column-fluid align-items-start  container-xxl">
+        <div class="content flex-row-fluid" id="kt_content">
+           <div class="card card-flush">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-9">
+                            <div class="mb-3">
+                                <label class="mb-1 form-label fs-6 fw-bold text-gray-700">Vendor <span class="text-danger">*</span></label>
+                                <asp:DropDownList ID="ddlVendorName" runat="server" class="form-control form-control-solid custom-select2" required="required">
+                                </asp:DropDownList>
+                                <div class="invalid-feedback">Please Select Vendor!!!</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="mb-3">
+                                <label class="mb-1 form-label fs-6 fw-bold text-gray-700">PO Date <span class="text-danger">*</span></label>
+                                <asp:TextBox ID="txtPODate" runat="server" class="date-start form-control form-control-solid" placeholder="Select PO Date" required="required"></asp:TextBox>
+                                 <div class="invalid-feedback">Please Select the PO Date!!!</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="mb-3">
+                                <label class="mb-1 form-label fs-6 fw-bold text-gray-700">Line Item <span class="text-danger">*</span></label>
+                                <asp:DropDownList ID="ddlLineItem" runat="server" class="form-control form-control-solid custom-select2" required="required" AutoPostBack="true" OnSelectedIndexChanged="ddlLineItem_SelectedIndexChanged">
+                                </asp:DropDownList>
+                                <div class="invalid-feedback">Please Select Line Item!!!</div>
+                            </div>
+                        </div>
+
+                       <%-- <div class="col-md-6 col-lg-2" hidden>
+                            <div class="mb-3">
+                                <label class="mb-1 form-label fs-6 fw-bold text-gray-700">Size <span class="text-danger">*</span></label>
+                                <asp:TextBox ID="txtSize" type="text" runat="server" class="form-control form-control-solid" ReadOnly="true" placeholder="Enter Size" ClientIDMode="Static"></asp:TextBox>
+                                
+                            </div>
+                        </div>--%>
+                        
+                        <div class="col-md-6 col-lg-2">
+    <div class="mb-3">
+        <label class="mb-1 form-label fs-6 fw-bold text-gray-700">EAN <span class="text-danger">*</span></label>
+        <asp:DropDownList ID="ddlEAN" runat="server" class="form-control form-control-solid custom-select2">
+            <asp:ListItem Value="" Text="Select EAN"></asp:ListItem>
+        </asp:DropDownList>
+        <div class="invalid-feedback">Please Select EAN!!!</div>
+    </div>
+</div>
+
+                        <div class="col-md-6 col-lg-2">
+                            <div class="mb-3">
+                                <label class="mb-1 form-label fs-6 fw-bold text-gray-700">Work Order Quantity <span class="text-danger">*</span></label>
+                                <asp:TextBox ID="txtWOQty" type="text" runat="server" class="quantity form-control form-control-solid" placeholder="Enter PO Quantity" ClientIDMode="Static" required="required"></asp:TextBox>
+                                <div class="invalid-feedback">Please Enter Work Order Quantity!!!</div>
+                            </div>
+                        </div>
+                         <div class="col-md-6 col-lg-2" hidden>
+                            <div class="mb-3 mt-7">
+                                <div class="mb-1">
+                                    <asp:CheckBox ID="chkTagSupply" Text="Is Barcode WO?" runat="server" style="background: none;padding: .5rem 1rem;border-color:#a5a5a5"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 col-md-6 col-lg-2 flex flex-center justify-content-center">
+                            <asp:Button ID="btnAdd" OnClick="btnAdd_Click" OnClientClick="if (!validateSingleEntry()) { return false; }" runat="server" class="btn btn-primary er fs-6 px-8 py-3 mt-3 m-1 w-50" Text="Add" UseSubmitBehavior="false"/>
+                            <asp:Button ID="btnClear" runat="server" class="btn btn-info er fs-6 px-8 py-3 mt-3 m-1 w-50" Text="Clear" UseSubmitBehavior="false" OnClick="btnClear_Click"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <div class="card mt-3  mb-15" id="grid_div" runat="server">
+            <div class="card-body">
+                <asp:GridView ID="grdAddPO" runat="server" AutoGenerateColumns="false" class="table_modal display nowrap table table-hover table-striped table-bordered"
+                    CellSpacing="0" Width="100%">
+                    <Columns>       
+                        <asp:TemplateField HeaderText="Sr.No">
+                            <ItemTemplate>
+                                <%#Container.DataItemIndex+1 %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField = "WO_LINE_ITEM" HeaderText="Line Item" />
+                         <asp:BoundField DataField = "EAN" HeaderText="EAN" />
+                         <asp:BoundField DataField = "MRP" HeaderText="MRP" />
+                        <asp:BoundField DataField = "WO_LINE_ITEM_QTY" HeaderText="Quantity" />
+                        <%--<asp:BoundField DataField = "WO_TAG_SUPPLY" HeaderText="Tag Supply" />--%>
+                        <asp:TemplateField HeaderText="Action">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%# Eval("WO_DTL_ID") %>' class="text-theme-red" OnClick="lnkDelete_Click" OnClientClick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash text-theme-red"></i> Delete</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                     </Columns>
+                </asp:GridView>
+
+                <center>
+                   <asp:Button ID="btnCreateWO" OnClick="btnCreateWO_Click" runat="server" class="btn btn-primary select-basic-multiple-seven mt-1 mb-3" Text="Create Work Order" UseSubmitBehavior="false"/>
+                 </center>   
+                 </div>
+        </div>
+             <div class="card mt-3  mb-15" id="grid_final_div" runat="server">
+            <div class="card-body">
+                    <asp:GridView ID="grdFinalPOGrid" runat="server" AutoGenerateColumns = "false" 
+                            class="display nowrap table table-hover table-striped table-bordered" 
+                            cellspacing="0" width="100%">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Sr.No">
+                                <ItemTemplate>
+                                    <%#Container.DataItemIndex+1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Work Order No">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkWONo" runat="server" Text='<%# Eval("WO_NO") %>' class="text-theme-green" OnClick="lnkWONo_Click"></asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField = "PO_NO" HeaderText = "PO NO" />
+                            <asp:BoundField DataField = "VENDOR_NAME" HeaderText = "Vendor Name" />
+                            <asp:BoundField DataField = "WO_Dt" HeaderText = "Work Order Date" />
+                        </Columns>
+                    </asp:GridView>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <asp:Panel ID="pnlAddEdit" runat="server" CssClass="modalPopup" Style="display: none; width: 95%;">
+        <h2 class="modal_heading">VIEW DETAILS</h2>
+        <asp:Button ID="btnCancel" runat="server" UseSubmitBehavior="false" Text="X" class="btn modal_closeBtn text-white" OnClick="btnCancel_Click" Style="background: #f00; margin-top: 3px;padding: 5px 12px;" />
+
+        <div class="modal-body mt-2">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <h6 class="text-start">Work Order No : <asp:Label ID="lblWONumber" runat="server" Font-Bold="true" Text="" CssClass="f-s-16"></asp:Label></h6>
+                </div>
+                <div class="col-md-6 col-lg-6 mb-3">
+                    <h6 class="text-start">Vendor Name : <asp:Label ID="lblVendorName" runat="server" Font-Bold="true" Text="" CssClass="f-s-16"></asp:Label></h6>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <h6 class="text-start">Work Order Date : <asp:Label ID="lblPODate" runat="server" Font-Bold="true" Text="" CssClass="f-s-16"></asp:Label></h6>
+                </div>
+                <div class="col-md-12 col-lg-12 col-xxl-12">
+                    <asp:GridView ID="grdViewDetails" runat="server" AutoGenerateColumns="false"
+                        class="display nowrap table table-hover table-striped table-bordered"
+                        CellSpacing="0" Width="100%">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Sr.No">
+                                <ItemTemplate>
+                                    <%#Container.DataItemIndex+1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField = "WO_Line_Item" HeaderText="Line Item" />
+                             <asp:BoundField DataField = "EAN" HeaderText="EAN" />
+                            <asp:BoundField DataField = "MRP" HeaderText="MRP" />
+                            <asp:BoundField DataField = "WO_Line_Item_Qty" HeaderText="Work Order Qty" />
+                            <%--<asp:BoundField DataField = "WO_Tag_Supply" HeaderText="Tag Supply" />--%>
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
+        </div>
+    </asp:Panel>
+
+    <asp:LinkButton ID="lnkFake" runat="server"></asp:LinkButton>
+    <cc1:ModalPopupExtender ID="popup" runat="server" DropShadow="false"
+        BehaviorID="popupBehavior"
+        PopupControlID="pnlAddEdit"
+        TargetControlID="lnkFake"
+        BackgroundCssClass="modalBackground">
+    </cc1:ModalPopupExtender>
+
+</ContentTemplate>
+</asp:UpdatePanel>
+   
+<asp:UpdateProgress ID="UpdateProgress1" runat="server">
+    <ProgressTemplate>
+        <div style="position: fixed; text-align: center; height: 100%; width: 100%; top: 0; right: 0; left: 0; z-index: 9999999; background-color: #000000; opacity: 0.8;">
+            <span style="border-width: 0px; position: fixed; padding: 10px; background-color: #FFFFFF; font-size: 25px; left: 43%; top: 40%; border-radius: 50px;">Please Wait...</span>
+        </div>
+    </ProgressTemplate>
+</asp:UpdateProgress>
+<script src="js/HQ_Work_Order_Creation.js"></script>
+
+    <script>
+    function validateSingleEntry() {
+    let isValid = true;
+
+    let vendor = document.getElementById('<%= ddlVendorName.ClientID %>');
+    let podate = document.getElementById('<%= txtPODate.ClientID %>');
+    let lineitem = document.getElementById('<%= ddlLineItem.ClientID %>');
+    let ean = document.getElementById('<%= ddlEAN.ClientID %>');
+    let qty = document.getElementById('<%= txtWOQty.ClientID %>');
+
+    if (vendor && vendor.value.trim() === "") {
+        vendor.classList.add("is-invalid");
+        isValid = false;
+    } else if (vendor) {
+        vendor.classList.remove("is-invalid");
+    }
+
+    if (podate && podate.value.trim() === "") {
+        podate.classList.add("is-invalid");
+        isValid = false;
+    } else if (podate) {
+        podate.classList.remove("is-invalid");
+    }
+
+    if (lineitem && lineitem.value.trim() === "") {
+        lineitem.classList.add("is-invalid");
+        isValid = false;
+    } else if (lineitem) {
+        lineitem.classList.remove("is-invalid");
+    }
+
+    if (ean && ean.value.trim() === "") {
+        ean.classList.add("is-invalid");
+        isValid = false;
+    } else if (ean) {
+        ean.classList.remove("is-invalid");
+    }
+
+    if (qty && qty.value.trim() === "") {
+        qty.classList.add("is-invalid");
+        isValid = false;
+    } else if (qty) {
+        qty.classList.remove("is-invalid");
+    }
+
+    return isValid;
+}
+
+    function bindValidationEvents()
+    {
+        let vendor = document.getElementById('<%= ddlVendorName.ClientID %>');
+        let podate = document.getElementById('<%= txtPODate.ClientID %>');
+        let lineitem = document.getElementById('<%= ddlLineItem.ClientID %>');
+        let qty = document.getElementById('<%= txtWOQty.ClientID %>');
+       
+        if (vendor) vendor.oninput = () => vendor.classList.remove("is-invalid");
+        if (podate) podate.oninput = () => podate.classList.remove("is-invalid");
+        if (lineitem) status.oninput = () => lineitem.classList.remove("is-invalid");
+        if (qty) status.oninput = () => qty.classList.remove("is-invalid");
+    }
+
+    document.addEventListener("DOMContentLoaded", bindValidationEvents);
+
+    Sys.WebForms.PageRequestManager.getInstance()
+        .add_endRequest(bindValidationEvents);
+
+    </script>
+
+</asp:Content>

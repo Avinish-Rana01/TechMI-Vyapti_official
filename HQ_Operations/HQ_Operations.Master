@@ -1,0 +1,562 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HQ_Operations.master.cs" Inherits="Markss_Retail_Suite.HQ_Operations.HQ_Operations" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="../images/techmi_icon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../assets/Login_files/css/main.css" />
+    <link href="../assets/plugins/datatable/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/datatable/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../assets/css/CSS.css" />
+    <%--<script src="../assets/js/date_validation_report.js"></script>--%>
+    <script type="text/javascript" src="../assets/js/jquery-1.11.1.min.js"></script>
+    <style type="text/css">
+        .page_head:after {
+            content: '' !important;
+        }
+
+        .no-js #loader {
+            display: none;
+        }
+
+        .js #loader {
+            display: block;
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url(../assets/media/loader.svg) center no-repeat #fff;
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <title></title>
+    </asp:ContentPlaceHolder>
+</head>
+<body id="kt_body" class="header-extended header-fixed header-tablet-and-mobile-fixed">
+    <div class="se-pre-con"></div>
+    <form id="form1" runat="server">
+        <div class="d-flex flex-column flex-root">
+            <div class="page d-flex flex-row flex-column-fluid">
+                <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+                    <div id="kt_header" class="header  align-items-stretch mb-lg-1" data-kt-sticky="true"
+                        data-kt-sticky-name="header"
+                        data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+                        <!--begin::Container-->
+                        <div class=" container-xxl  d-flex align-items-center">
+                            <!--begin::Heaeder menu toggle-->
+                            <div class="d-flex topbar align-items-center d-lg-none ms-n2 me-3" title="Show aside menu">
+                                <div class="btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_header_menu_mobile_toggle">
+                                    <i class="ki-duotone ki-abstract-14 fs-1"><span class="path1"></span><span class="path2"></span></i>
+                                </div>
+                            </div>
+                            <!--end::Heaeder menu toggle-->
+                            <!--begin::Header Logo-->
+                            <div class="header-logo me-5 flex-grow-1 flex-lg-grow-0">
+                                <a href="#">
+                                    <img alt="Logo" src="../images/vyapti_logo_white.png" class="logo-default h-50px" />
+                                    <img alt="Logo" src="../images/vyapti_logo.png" class="logo-sticky h-50px" />
+                                </a>
+                            </div>
+                            <!--end::Header Logo-->
+                            <!--begin::Wrapper-->
+                            <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
+                                <!--begin::Navbar-->
+                                <div class="d-flex align-items-stretch" id="kt_header_nav">
+
+                                    <!--begin::Menu wrapper-->
+                                    <div class="header-menu align-items-stretch"
+                                        data-kt-drawer="true"
+                                        data-kt-drawer-name="header-menu"
+                                        data-kt-drawer-activate="{default: true, lg: false}"
+                                        data-kt-drawer-overlay="true"
+                                        data-kt-drawer-width="{default:'200px', '300px': '250px'}"
+                                        data-kt-drawer-direction="start"
+                                        data-kt-drawer-toggle="#kt_header_menu_mobile_toggle"
+                                        data-kt-swapper="true"
+                                        data-kt-swapper-mode="prepend"
+                                        data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
+                                        <!--begin::Menu-->
+                                        <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-title-gray-700 menu-state-primary menu-arrow-gray-500 fw-semibold my-5 my-lg-0 align-items-stretch px-2 px-lg-0"
+                                            id="#kt_header_menu1"
+                                            data-kt-menu="true">
+                                            <!--begin:Menu item-->
+                                            <div id="HO_Operations" runat="server" visible="true" style="display: contents;">
+                                                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                                                    class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
+                                                    <!--begin:Menu link-->
+                                                    <a href="HQ_Dashboard.aspx" class="text-white">
+                                                        <span class="menu-link py-3 HO_Dashboard" id="HO_Dashboard">
+                                                            <span class="menu-title">Dashboard</span>
+                                                            <span class="menu-arrow d-lg-none"></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+
+                                                <div id="Master_Id" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                                                    class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" runat="server" visible="false">
+                                                    <span class="menu-link py-3 Master_Management" id="Master_Management">
+                                                        <span class="menu-title">Master Data Management</span>
+                                                        <span class="menu-arrow d-lg-none"></span>
+                                                    </span>
+                                                    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown p-0">
+                                                        <!--begin:Dashboards menu-->
+                                                        <div class="menu-state-bg menu-extended overflow-hidden" data-kt-menu-dismiss="true">
+                                                            <!--begin:Row-->
+                                                            <div class="row">
+                                                                <div class="col-lg-12 mb-1" id="Category_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Category_Master.aspx" class="menu-link Category_Master">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-file fs-1"></i>
+                                                                            </span>
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Category Master</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12" id="Material_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Material_Master.aspx" class="menu-link Material_Master">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-file-alt fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Material Master</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12" id="EAN_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="EAN_Master.aspx" class="menu-link EAN_Master">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-pencil fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">EAN Master</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 mb-1" id="Department_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Department_Master.aspx" class="menu-link Department_Master">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-building fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Department Master</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 mb-1" id="Designation_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Designation_Master.aspx" class="menu-link Designation_Master">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-id-badge fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Designation Master</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 mb-1" id="Employee_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Employee_Master.aspx" class="menu-link Employee_Master">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-users fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Employee Master</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12" id="Vendor_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Vendor_Master.aspx" class="menu-link Vendor_Master">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-user fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Vendor Management</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12" id="Store_Reg_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Store_Registration.aspx" class="menu-link Store_Registration">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-building fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Store Registration</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12">
+                                                                    <div class="menu-item p-0 m-0" id="Warehouse_Reg_Id" runat="server" visible="false">
+                                                                        <a href="Warehouse_Master.aspx" class="menu-link Warehouse_Master">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-building fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Warehouse Registration</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+
+
+
+
+
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                                <div runat="server" id="Procurement_Id" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                                                    class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" visible="false">
+                                                    <span class="menu-link py-3 Procurement_Management" id="Procurement_Management">
+                                                        <span class="menu-title">Procurement Management</span>
+                                                        <span class="menu-arrow d-lg-none"></span>
+                                                    </span>
+                                                    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown p-0">
+                                                        <!--begin:Dashboards menu-->
+                                                        <div class="menu-state-bg menu-extended overflow-hidden" data-kt-menu-dismiss="true">
+                                                            <!--begin:Row-->
+                                                            <div class="row">
+                                                                <%--<div class="col-lg-12 mb-1">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="#" class="menu-link ">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-users fs-1"></i>
+                                                                        </span>
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">Supplier Management</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>--%>
+                                                                <div class="col-lg-12 mb-1" id="Workorder_creation_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Work_Order_Creation.aspx" class="menu-link Work_Order_Creation">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-file-alt fs-1"></i>
+                                                                            </span>
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Garment Work Order Creation</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 mb-1" id="Tag_PO_creation_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Tag_PO_Creation.aspx" class="menu-link Tag_PO_Creation">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-pencil fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Tag PO Creation</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <%--<div class="col-lg-12 mb-1" id="Tag_creation_Id" runat="server" visible="false">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="Tag_Creation.aspx" class="menu-link Tag_Creation">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-tag fs-1"></i>
+                                                                        </span>
+
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">Tag Creation</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>--%>
+                                                                <div class="col-lg-12" id="View_Work_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="View_Work_Order_Details.aspx" class="menu-link ">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-file-excel fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">View Work Order Details</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div runat="server" id="Warehouse_Management_Id" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                                                    class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" visible="false">
+                                                    <span class="menu-link py-3 Warehouse_Operations" id="Warehouse_Operations">
+                                                        <span class="menu-title">Warehouse & Management</span>
+                                                        <span class="menu-arrow d-lg-none"></span>
+                                                    </span>
+                                                    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown p-0">
+                                                        <!--begin:Dashboards menu-->
+                                                        <div class="menu-state-bg menu-extended overflow-hidden" data-kt-menu-dismiss="true">
+                                                            <!--begin:Row-->
+                                                            <div class="row">
+                                                                <%--<div class="col-lg-12 mb-1" id="Stock_Move_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Stock_Movement.aspx" class="menu-link Stock_Movement">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-arrow-left-rotate fs-1"></i>
+                                                                            </span>
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Stock Movement</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 mb-1" id="Inter_Branch_Transfer_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Inter_Branch_Transfer.aspx" class="menu-link Inter_Branch_Transfer">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-suitcase fs-1"></i>
+                                                                            </span>
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Inter-Branch Transfer</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12" id="Logistics_Planning_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="Logistics_Planning.aspx" class="menu-link Logistics_Planning">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-truck fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Logistics Planning</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>--%>
+
+                                                                <div class="col-lg-12 mb-1" id="HU_Creation_Id" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="HU_Creation.aspx" class="menu-link">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-file fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">HU Creation</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-12 mb-1" id="View_HU_Dtl" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <a href="View_HU_Details.aspx" class="menu-link">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-file fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">View HU Details</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+                                                              <%-- <div class="col-lg-12">
+                                                                    <div class="col-lg-12 menu-item p-0 m-0" id="HU_Creation_Id" runat="server"  visible="false">
+                                                                        <a href="HU_Creation.aspx" class="menu-link HU_Creation">
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-file fs-1"></i>
+                                                                            </span>
+
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">HU Creation</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>--%>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Menu wrapper-->
+
+                                </div>
+                                <!--end::Navbar-->
+                                <!--begin::Toolbar wrapper-->
+                                <div class="topbar d-flex align-items-stretch flex-shrink-0">
+                                    <div class="d-flex align-items-center ms-1" id="kt_header_user_menu_toggle">
+                                        <!--begin::User info-->
+                                        <div class="btn btn-flex align-items-center bg-hover-white bg-hover-opacity-10 py-2 ps-2 pe-2 me-n2" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+
+                                            <!--begin::Name-->
+                                            <div class="d-none d-md-flex flex-column align-items-end justify-content-center me-2 me-md-4">
+                                                <span class="text-white opacity-75 fs-8 fw-semibold lh-1 mb-1">Welcome,
+                                                    <asp:Label ID="lbl_User" runat="server" Text=""></asp:Label></span>
+                                                <span class="text-white fs-8 fw-bold lh-1">
+                                                    <asp:Label ID="lbl_Designation" runat="server" Text=""></asp:Label></span>
+                                            </div>
+                                            <!--end::Name-->
+                                            <!--begin::Symbol-->
+                                            <div class="symbol symbol-30px symbol-md-40px">
+                                                <img src="../assets/media/avatars/300-1.jpg" alt="image">
+                                            </div>
+                                            <!--end::Symbol-->
+                                        </div>
+                                        <!--end::User info-->
+                                        <!--begin::User account menu-->
+                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
+                                            <!--begin::Menu item-->
+                                            <div class="menu-item px-3">
+                                                <div class="menu-content d-flex align-items-center px-3">
+                                                    <div class="symbol symbol-50px me-5">
+                                                        <img alt="Logo" src="../assets/media/avatars/300-1.jpg">
+                                                    </div>
+                                                    <div class="d-flex flex-column">
+                                                        <div class="fw-bold d-flex align-items-center fs-5">
+                                                            <asp:Label ID="lbl_Username" runat="server" Text=""></asp:Label>
+                                                            <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">
+                                                                <asp:Label ID="lbl_Department" runat="server" Text=""></asp:Label></span>
+                                                        </div>
+
+                                                        <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">
+                                                            <asp:Label ID="lbl_Emailid" runat="server" Text=""></asp:Label>
+                                                        </a>
+                                                    </div>
+                                                    <!--end::Username-->
+                                                </div>
+                                            </div>
+                                            <div class="separator my-2"></div>
+                                            <!--end::Menu separator-->
+                                            <!--begin::Menu item-->
+                                            <div class="menu-item px-5">
+                                                <a href="#" class="menu-link px-5">My Profile
+                                                </a>
+                                            </div>
+                                            <div class="separator my-2"></div>
+                                            <div class="menu-item px-2">
+                                                <asp:LinkButton ID="lnkLogout" OnClick="lnkLogout_Click1" runat="server" class="menu-link px-5"><i class="fa fa-sign-out m-2"></i> Sign Out</asp:LinkButton>
+                                            </div>
+                                            <!--end::Menu item-->
+                                        </div>
+                                        <!--end::User account menu-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <asp:HiddenField ID="lblHQMenuName" runat="server" />
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+
+                    <div class="footer py-2 d-flex flex-lg-column " id="kt_footer">
+                        <!--begin::Container-->
+                        <div class=" container-xxl  d-flex flex-column flex-md-row align-items-center justify-content-between">
+                            <!--begin::Copyright-->
+                            <div class="text-gray-900 order-2 order-md-1">
+                                Copyright &copy;
+                            <script type="text/javascript">document.write(new Date().getFullYear())</script>
+                                | Design & Developed by 
+                            <a href="http://www.markss.com/" target="_blank" class="text-black" style="text-decoration: underline;">Markss Infotech Limited</a>
+                            </div>
+                            <!--end::Copyright-->
+                            <!--begin::Menu-->
+                            <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                                <li class="menu-item">Version 1.0</li>
+                            </ul>
+                            <!--end::Menu-->
+                        </div>
+                        <!--end::Container-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+        <i class="ki-duotone ki-arrow-up"><span class="path1"></span><span class="path2"></span></i>
+    </div>
+
+    <script src="../assets/plugins/global/plugins.bundle.js"></script>
+    <script src="../assets/js/scripts.bundle.js"></script>
+    <script type="text/javascript" src="../assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/datatable/js/jszip.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/datatable/js/pdfmake.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/datatable/js/vfs_fonts.js"></script>
+    <script type="text/javascript" src="../assets/plugins/datatable/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/datatable/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/datatable/js/date-eu.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap-material-datetimepicker.js"></script>
+    <script type="text/javascript" src="../assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="../assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="../assets/js/page.js"></script>
+    <%-- <script type="text/javascript" src="../assets/js/Validation.js"></script>--%>
+    <script type="text/javascript" src="../assets/js/date_validation.js"></script>
+    <script src="../assets/js/date_validation_report.js"></script>
+</body>
+</html>

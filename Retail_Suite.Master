@@ -1,0 +1,486 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Retail_Suite.master.cs" Inherits="Markss_Retail_Suite.Retail_Suite" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="images/icon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/Login_files/css/main.css" />
+    <link href="assets/plugins/datatable/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/datatable/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/bootstrap-material-datetimepicker.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/CSS.css" />
+    <script src="assets/js/date_validation_report.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
+    <style type="text/css">
+        .page_head:after {
+            content: '' !important;
+        }
+
+        .no-js #loader {
+            display: none;
+        }
+
+        .js #loader {
+            display: block;
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url(assets/media/loader.svg) center no-repeat #fff;
+        }
+    </style>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <title></title>
+    </asp:ContentPlaceHolder>
+</head>
+<body id="kt_body" class="header-extended header-fixed header-tablet-and-mobile-fixed">
+    <div class="se-pre-con"></div>
+    <form id="form1" runat="server">
+    <div class="d-flex flex-column flex-root">
+        <div class="page d-flex flex-row flex-column-fluid">
+            <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+                    <div id="kt_header" class="header  align-items-stretch mb-lg-1" data-kt-sticky="true"
+                     data-kt-sticky-name="header"
+                     data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+                    <!--begin::Container-->
+                    <div class=" container-xxl  d-flex align-items-center">
+                        <!--begin::Heaeder menu toggle-->
+                        <div class="d-flex topbar align-items-center d-lg-none ms-n2 me-3" title="Show aside menu">
+                            <div class="btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_header_menu_mobile_toggle">
+                                <i class="ki-duotone ki-abstract-14 fs-1"><span class="path1"></span><span class="path2"></span></i>
+                            </div>
+                        </div>
+                        <!--end::Heaeder menu toggle-->
+                        <!--begin::Header Logo-->
+                        <div class="header-logo me-5 flex-grow-1 flex-lg-grow-0">
+                            <a href="https://preview.keenthemes.com/metronic8/demo2/index.html">
+                                <img alt="Logo" src="images/markss-logo-white.png" class="logo-default h-50px" />
+                                <img alt="Logo" src="images/markss-logo.png" class="logo-sticky h-50px" />
+                            </a>
+                        </div>
+                        <!--end::Header Logo-->
+                        <!--begin::Wrapper-->
+                        <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
+                            <!--begin::Navbar-->
+                            <div class="d-flex align-items-stretch" id="kt_header_nav">
+
+                                <!--begin::Menu wrapper-->
+                                <div class="header-menu align-items-stretch"
+                                     data-kt-drawer="true"
+                                     data-kt-drawer-name="header-menu"
+                                     data-kt-drawer-activate="{default: true, lg: false}"
+                                     data-kt-drawer-overlay="true"
+                                     data-kt-drawer-width="{default:'200px', '300px': '250px'}"
+                                     data-kt-drawer-direction="start"
+                                     data-kt-drawer-toggle="#kt_header_menu_mobile_toggle"
+                                     data-kt-swapper="true"
+                                     data-kt-swapper-mode="prepend"
+                                     data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
+                                    <!--begin::Menu-->
+                                    <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-title-gray-700 menu-state-primary menu-arrow-gray-500 fw-semibold my-5 my-lg-0 align-items-stretch px-2 px-lg-0"
+                                         id="#kt_header_menu1"
+                                         data-kt-menu="true">
+                                        <!--begin:Menu item-->
+                                        <div id="Dashboards" runat="server" visible="true" style="display: contents;">
+                                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                    class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" >
+                                                    <!--begin:Menu link-->
+                                                    <a href="Dashboards.aspx" class="text-white">
+                                                        <span class="menu-link py-3 All_Dashboard" id="All_Dashboard">
+                                                            <span class="menu-title">Dashboards</span>
+                                                            <span class="menu-arrow d-lg-none"></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                        </div>
+
+                                        <div id="HO_Operations" runat="server" visible="true" style="display: contents;">
+                                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" >
+                                                <!--begin:Menu link-->
+                                                <a href="HO_Dashboard.aspx" class="text-white">
+                                                    <span class="menu-link py-3 HO_Dashboard" id="HO_Dashboard">
+                                                        <span class="menu-title">Dashboard</span>
+                                                        <span class="menu-arrow d-lg-none"></span>
+                                                    </span>
+                                                </a>
+                                            </div>
+
+                                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
+                                                <span class="menu-link py-3 Procurement_Management" id="Procurement_Management">
+                                                    <span class="menu-title">Procurement Management</span>
+                                                    <span class="menu-arrow d-lg-none"></span>
+                                                </span>
+                                                <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown p-0">
+                                                    <!--begin:Dashboards menu-->
+                                                    <div class="menu-state-bg menu-extended overflow-hidden" data-kt-menu-dismiss="true">
+                                                        <!--begin:Row-->
+                                                        <div class="row">
+                                                            <div class="col-lg-12 mb-1">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="Supplier_Management.aspx" class="menu-link ">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-users fs-1"></i>
+                                                                        </span>
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">Supplier Management</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 mb-1">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="Work_Order_Creation.aspx" class="menu-link">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-file-alt fs-1"></i>
+                                                                        </span>
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">Work Order Creation</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 mb-1">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="Tag_PO_Creation.aspx" class="menu-link ">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-pencil fs-1"></i>
+                                                                        </span>
+
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">Tag PO Creation</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="View_Work_Order_Details.aspx" class="menu-link ">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-file-excel fs-1"></i>
+                                                                        </span>
+
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">View Work Order Details</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="#" class="menu-link ">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-file fs-1"></i>
+                                                                        </span>
+
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">Category Master</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="#" class="menu-link ">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-pencil fs-1"></i>
+                                                                        </span>
+
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">SKU Creation</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                           
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            
+
+                                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
+                                                <span class="menu-link py-3 Warehouse_Operations" id="Warehouse_Operations">
+                                                    <span class="menu-title">Warehouse & Distribution Management</span>
+                                                    <span class="menu-arrow d-lg-none"></span>
+                                                </span>
+                                                <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown p-0">
+                                                    <!--begin:Dashboards menu-->
+                                                    <div class="menu-state-bg menu-extended overflow-hidden" data-kt-menu-dismiss="true">
+                                                        <!--begin:Row-->
+                                                        <div class="row">
+                                                            <div class="col-lg-12 mb-1">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="#" class="menu-link ">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-arrow-left-rotate fs-1"></i>
+                                                                        </span>
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">Stock Movement</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 mb-1">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="#" class="menu-link">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-suitcase fs-1"></i>
+                                                                        </span>
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">Inter-Branch Transfer</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="menu-item p-0 m-0">
+                                                                    <a href="#" class="menu-link ">
+                                                                        <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                            <i class="fa fa-truck fs-1"></i>
+                                                                        </span>
+
+                                                                        <span class="d-flex flex-column">
+                                                                            <span class="fs-4">Logistics Planning</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                           
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div id="Vendor_Management_Menu" runat="server" visible="false" style="display: contents;">
+                                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                class="menu-item menu-here-bg me-0 me-lg-2" >
+                                                <!--begin:Menu link-->
+                                                <a href="Vendor_Dashboard.aspx" class="text-white">
+                                                    <span class="menu-link py-3 Vendor_Dashboard" id="Vendor_Dashboard">
+                                                        <span class="menu-title">Dashboard</span>
+                                                        <span class="menu-arrow d-lg-none"></span>
+                                                    </span>
+                                                </a>
+                                            </div>
+
+                                            <%--<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                class="menu-item menu-here-bg me-0 me-lg-2" >
+                                                <!--begin:Menu link-->
+                                                <a href="Work_Order_Creation.aspx" class="text-white">
+                                                    <span class="menu-link py-3 Work_Order_Creation" id="Work_Order_Creation">
+                                                        <span class="menu-title">Work Order Creation</span>
+                                                        <span class="menu-arrow d-lg-none"></span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                class="menu-item menu-here-bg me-0 me-lg-2" >
+                                                <!--begin:Menu link-->
+                                                <a href="Tag_PO_Creation.aspx" class="text-white">
+                                                    <span class="menu-link py-3 Tag_PO_Creation" id="Tag_PO_Creation">
+                                                        <span class="menu-title">Tag PO Creation</span>
+                                                        <span class="menu-arrow d-lg-none"></span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                class="menu-item menu-here-bg me-0 me-lg-2" >
+                                                <!--begin:Menu link-->
+                                                <a href="View_Work_Order_Details.aspx" class="text-white">
+                                                    <span class="menu-link py-3 View_Work_Order" id="View_Work_Order">
+                                                        <span class="menu-title">View Work Order Details</span>
+                                                        <span class="menu-arrow d-lg-none"></span>
+                                                    </span>
+                                                </a>
+                                            </div>
+
+                                    
+                                            --%>
+                                        
+                                        </div>
+                                        
+                                        
+                                        <div id="Warehouse_Management" runat="server" visible="true" style="display: contents;">
+                                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                    class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" >
+                                                    <!--begin:Menu link-->
+                                                    <a href="Warehouse_Dashboard.aspx">
+                                                        <span class="menu-link py-3 Warehouse_Dashboard" id="Warehouse_Dashboard">
+                                                            <span class="menu-title">Dashboard</span>
+                                                            <span class="menu-arrow d-lg-none"></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                        </div>
+
+                                        <div id="Store_Operations" runat="server" visible="true" style="display: contents;">
+                                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                    class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" >
+                                                    <!--begin:Menu link-->
+                                                    <a href="Store_Dashboard.aspx" class="text-white">
+                                                        <span class="menu-link py-3 Store_Operations_Dashboard" id="Store_Operations_Dashboard">
+                                                            <span class="menu-title">Dashboard</span>
+                                                            <span class="menu-arrow d-lg-none"></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                        </div>
+
+                                        <div id="Reports_Analytics" runat="server" visible="true" style="display: contents;">
+                                            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" 
+                                                    class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" >
+                                                    <!--begin:Menu link-->
+                                                    <a href="Reports_Dashboard.aspx" class="text-white">
+                                                        <span class="menu-link py-3 Reports_Analytics_Dashboard" id="Reports_Analytics_Dashboard">
+                                                            <span class="menu-title">Dashboard</span>
+                                                            <span class="menu-arrow d-lg-none"></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--end::Menu wrapper-->
+                               
+                            </div>
+                            <!--end::Navbar-->
+                            <!--begin::Toolbar wrapper-->
+                            <div class="topbar d-flex align-items-stretch flex-shrink-0">
+                                <div class="d-flex align-items-center ms-1" id="kt_header_user_menu_toggle">
+                                    <!--begin::User info-->
+                                    <div class="btn btn-flex align-items-center bg-hover-white bg-hover-opacity-10 py-2 ps-2 pe-2 me-n2" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+
+                                        <!--begin::Name-->
+                                        <div class="d-none d-md-flex flex-column align-items-end justify-content-center me-2 me-md-4">
+                                            <span class="text-white opacity-75 fs-8 fw-semibold lh-1 mb-1">Welcome, Admin</span>
+                                            <span class="text-white fs-8 fw-bold lh-1">Front End Developer</span>
+                                        </div>
+                                        <!--end::Name-->
+                                        <!--begin::Symbol-->
+                                        <div class="symbol symbol-30px symbol-md-40px">
+                                            <img src="assets/media/avatars/300-1.jpg" alt="image">
+                                        </div>
+                                        <!--end::Symbol-->
+                                    </div>
+                                    <!--end::User info-->
+                                    <!--begin::User account menu-->
+                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-3">
+                                            <div class="menu-content d-flex align-items-center px-3">
+                                                <div class="symbol symbol-50px me-5">
+                                                    <img alt="Logo" src="assets/media/avatars/300-1.jpg">
+                                                </div>
+                                                <div class="d-flex flex-column">
+                                                    <div class="fw-bold d-flex align-items-center fs-5">
+                                                        Admin
+                                                        <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Software Department</span>
+                                                    </div>
+
+                                                    <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">
+                                                        abc@markss.com
+                                                    </a>
+                                                </div>
+                                                <!--end::Username-->
+                                            </div>
+                                        </div>
+                                        <div class="separator my-2"></div>
+                                        <!--end::Menu separator-->
+                                        <!--begin::Menu item-->
+                                        <div class="menu-item px-5">
+                                            <a href="#" class="menu-link px-5">
+                                                My Profile
+                                            </a>
+                                        </div>
+                                        <div class="separator my-2"></div>
+                                        <div class="menu-item px-2">
+                                             <asp:LinkButton ID="lnkLogout" OnClick="lnkLogout_Click1" runat="server" class="menu-link px-5"><i class="fa fa-sign-out m-2"></i> Sign Out</asp:LinkButton>
+                                        </div>
+                                        <!--end::Menu item-->
+                                    </div>
+                                    <!--end::User account menu-->
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                 </div>
+                
+                    <asp:HiddenField ID="lblMenuName" runat="server" />
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+               
+                <div class="footer py-2 d-flex flex-lg-column " id="kt_footer">
+                    <!--begin::Container-->
+                    <div class=" container-xxl  d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <!--begin::Copyright-->
+                        <div class="text-gray-900 order-2 order-md-1">
+                            Copyright &copy;
+                            <script type="text/javascript">document.write(new Date().getFullYear())</script>
+                           | Design & Developed by 
+                            <a href="http://www.markss.com/" target="_blank" class="text-black" style="text-decoration: underline;">Markss Infotech Limited</a>
+                        </div>
+                        <!--end::Copyright-->
+                        <!--begin::Menu-->
+                        <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                            <li class="menu-item">Version 1.0</li>
+                        </ul>
+                        <!--end::Menu-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+            </div>
+        </div>
+    </div>
+     </form>
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+        <i class="ki-duotone ki-arrow-up"><span class="path1"></span><span class="path2"></span></i>
+    </div>
+
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <script type="text/javascript" src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/datatable/js/jszip.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/datatable/js/pdfmake.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/datatable/js/vfs_fonts.js"></script>
+    <script type="text/javascript" src="assets/plugins/datatable/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/datatable/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/datatable/js/date-eu.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap-material-datetimepicker.js"></script>
+    <script type="text/javascript" src="assets/js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="assets/js/modernizr.js"></script>
+    <script src="assets/js/page.js"></script>
+    <script src="assets/js/Validation.js"></script>
+    <script type="text/javascript" src="assets/js/date_validation.js"></script>
+</body>
+</html>

@@ -1,0 +1,942 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{814183CF-7230-4438-9127-51AA93D8E5EE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Markss_Retail_Suite</RootNamespace>
+    <AssemblyName>Markss_Retail_Suite</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44381</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="QueryStringEncryption">
+      <HintPath>C:\Users\Manish\Desktop\Rahullll\Order_Portal_code_Latest\Bin\QueryStringEncryption.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\chart_js\accessibility.js" />
+    <Content Include="assets\chart_js\bootstrap-datepicker.min.js" />
+    <Content Include="assets\chart_js\data.js" />
+    <Content Include="assets\chart_js\exporting.js" />
+    <Content Include="assets\chart_js\highcharts-3d.js" />
+    <Content Include="assets\chart_js\highcharts.js" />
+    <Content Include="assets\chart_js\jquery-1.3.2.min.js" />
+    <Content Include="assets\chart_js\jquery.easypiechart.min.js" />
+    <Content Include="assets\chart_js\jquery.nicescroll.js" />
+    <Content Include="assets\chart_js\table_grab.js" />
+    <Content Include="assets\css\bootstrap-material-datetimepicker.css" />
+    <Content Include="assets\css\bootstrap-material-design.min.css" />
+    <Content Include="assets\css\CSS.css" />
+    <Content Include="assets\css\style.bundle.css" />
+    <Content Include="assets\css\table.css" />
+    <Content Include="assets\js\ASPSnippets_Pager.min.js" />
+    <Content Include="assets\js\bootstrap-material-datetimepicker.js" />
+    <Content Include="assets\js\custom\landing.js" />
+    <Content Include="assets\js\custom\widgets.js" />
+    <Content Include="assets\js\date_validation.js" />
+    <Content Include="assets\js\date_validation_report.js" />
+    <Content Include="assets\js\jquery-1.11.1.min.js" />
+    <Content Include="assets\js\modernizr.js" />
+    <Content Include="assets\js\moment-with-locales.min.js" />
+    <Content Include="assets\js\page.js" />
+    <Content Include="assets\js\pages\Invoice_Generation.js" />
+    <Content Include="assets\js\pages\Invoice_Receiving.js" />
+    <Content Include="assets\js\pages\Supplier_Management.js" />
+    <Content Include="assets\js\pages\View_Work_Order_Details.js" />
+    <Content Include="assets\js\pages\Work_Order_Creation.js" />
+    <Content Include="assets\js\pages\Tag_PO_Creation.js" />
+    <Content Include="assets\js\scripts.bundle.js" />
+    <Content Include="assets\js\Validation.js" />
+    <Content Include="assets\js\widgets.bundle.js" />
+    <Content Include="assets\Login_files\css\main.css" />
+    <Content Include="assets\Login_files\css\util.css" />
+    <Content Include="assets\Login_files\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="assets\Login_files\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="assets\Login_files\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="assets\Login_files\images\bg-01.png" />
+    <Content Include="assets\Login_files\js\main.js" />
+    <Content Include="assets\Login_files\vendor\animate\animate.css" />
+    <Content Include="assets\Login_files\vendor\animsition\css\animsition.min.css" />
+    <Content Include="assets\Login_files\vendor\animsition\js\animsition.min.js" />
+    <Content Include="assets\Login_files\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\Login_files\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\Login_files\vendor\bootstrap\js\popper.js" />
+    <Content Include="assets\Login_files\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="assets\media\auth\404-error-dark.png" />
+    <Content Include="assets\media\auth\404-error.png" />
+    <Content Include="assets\media\auth\500-error-dark.png" />
+    <Content Include="assets\media\auth\500-error.png" />
+    <Content Include="assets\media\auth\agency-dark.png" />
+    <Content Include="assets\media\auth\agency.png" />
+    <Content Include="assets\media\auth\bg10-dark.jpg" />
+    <Content Include="assets\media\auth\bg10.jpg" />
+    <Content Include="assets\media\auth\bg11.png" />
+    <Content Include="assets\media\auth\chart-graph-dark.png" />
+    <Content Include="assets\media\auth\chart-graph.png" />
+    <Content Include="assets\media\auth\login_bg01.png" />
+    <Content Include="assets\media\avatars\300-1.jpg" />
+    <Content Include="assets\media\icons\dashboard.png" />
+    <Content Include="assets\media\icons\inventory-management.png" />
+    <Content Include="assets\media\icons\inventory.png" />
+    <Content Include="assets\media\icons\process.png" />
+    <Content Include="assets\media\icons\seo-report.png" />
+    <Content Include="assets\media\icons\store_operations.png" />
+    <Content Include="assets\media\icons\team.png" />
+    <Content Include="assets\media\icons\ho_operations.png" />
+    <Content Include="assets\media\illustrations\sigma-1\17-dark.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\1.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\12.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\15.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\16.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\17.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\19.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\2.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\20.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\3.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\4.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\5.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\6.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\7.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\8.png" />
+    <Content Include="assets\media\illustrations\sketchy-1\9.png" />
+    <Content Include="assets\media\loader.svg" />
+    <Content Include="assets\media\patterns\header-bg-dark.jpg" />
+    <Content Include="assets\media\patterns\header-bg.jpg" />
+    <Content Include="assets\media\svg\avatars\001-boy.svg" />
+    <Content Include="assets\media\svg\avatars\004-boy-1.svg" />
+    <Content Include="assets\media\svg\avatars\006-girl-3.svg" />
+    <Content Include="assets\media\svg\avatars\014-girl-7.svg" />
+    <Content Include="assets\media\svg\avatars\018-girl-9.svg" />
+    <Content Include="assets\media\svg\avatars\020-girl-11.svg" />
+    <Content Include="assets\media\svg\avatars\029-boy-11.svg" />
+    <Content Include="assets\media\svg\avatars\043-boy-18.svg" />
+    <Content Include="assets\media\svg\avatars\047-girl-25.svg" />
+    <Content Include="assets\media\svg\avatars\blank-dark.svg" />
+    <Content Include="assets\media\svg\avatars\blank.svg" />
+    <Content Include="assets\media\svg\brand-logos\amazon-dark.svg" />
+    <Content Include="assets\media\svg\brand-logos\amazon.svg" />
+    <Content Include="assets\media\svg\brand-logos\angular-icon.svg" />
+    <Content Include="assets\media\svg\brand-logos\aon.svg" />
+    <Content Include="assets\media\svg\brand-logos\apple-black-dark.svg" />
+    <Content Include="assets\media\svg\brand-logos\apple-black.svg" />
+    <Content Include="assets\media\svg\brand-logos\aspnetzero.svg" />
+    <Content Include="assets\media\svg\brand-logos\atica.svg" />
+    <Content Include="assets\media\svg\brand-logos\aven.svg" />
+    <Content Include="assets\media\svg\brand-logos\balloon.svg" />
+    <Content Include="assets\media\svg\brand-logos\beats-electronics.svg" />
+    <Content Include="assets\media\svg\brand-logos\bebo.svg" />
+    <Content Include="assets\media\svg\brand-logos\behance.svg" />
+    <Content Include="assets\media\svg\brand-logos\bootstrap5.svg" />
+    <Content Include="assets\media\svg\brand-logos\bp-2.svg" />
+    <Content Include="assets\media\svg\brand-logos\code-lab.svg" />
+    <Content Include="assets\media\svg\brand-logos\disqus.svg" />
+    <Content Include="assets\media\svg\brand-logos\dribbble-icon-1.svg" />
+    <Content Include="assets\media\svg\brand-logos\duolingo.svg" />
+    <Content Include="assets\media\svg\brand-logos\facebook-3.svg" />
+    <Content Include="assets\media\svg\brand-logos\facebook-4.svg" />
+    <Content Include="assets\media\svg\brand-logos\figma-1.svg" />
+    <Content Include="assets\media\svg\brand-logos\fox-hub.svg" />
+    <Content Include="assets\media\svg\brand-logos\fujifilm.svg" />
+    <Content Include="assets\media\svg\brand-logos\github.svg" />
+    <Content Include="assets\media\svg\brand-logos\google-icon.svg" />
+    <Content Include="assets\media\svg\brand-logos\hp-3.svg" />
+    <Content Include="assets\media\svg\brand-logos\instagram-2-1.svg" />
+    <Content Include="assets\media\svg\brand-logos\invision.svg" />
+    <Content Include="assets\media\svg\brand-logos\kanba.svg" />
+    <Content Include="assets\media\svg\brand-logos\kickstarter.svg" />
+    <Content Include="assets\media\svg\brand-logos\kpmg.svg" />
+    <Content Include="assets\media\svg\brand-logos\laravel-2.svg" />
+    <Content Include="assets\media\svg\brand-logos\leaf.svg" />
+    <Content Include="assets\media\svg\brand-logos\linkedin-1.svg" />
+    <Content Include="assets\media\svg\brand-logos\linkedin-2.svg" />
+    <Content Include="assets\media\svg\brand-logos\lloyds-of-london-logo.svg" />
+    <Content Include="assets\media\svg\brand-logos\nasa.svg" />
+    <Content Include="assets\media\svg\brand-logos\pinterest-p.svg" />
+    <Content Include="assets\media\svg\brand-logos\plurk.svg" />
+    <Content Include="assets\media\svg\brand-logos\reddit.svg" />
+    <Content Include="assets\media\svg\brand-logos\sentry-3.svg" />
+    <Content Include="assets\media\svg\brand-logos\slack-icon.svg" />
+    <Content Include="assets\media\svg\brand-logos\spotify.svg" />
+    <Content Include="assets\media\svg\brand-logos\spring-3.svg" />
+    <Content Include="assets\media\svg\brand-logos\telegram-2.svg" />
+    <Content Include="assets\media\svg\brand-logos\telegram.svg" />
+    <Content Include="assets\media\svg\brand-logos\tower.svg" />
+    <Content Include="assets\media\svg\brand-logos\treva.svg" />
+    <Content Include="assets\media\svg\brand-logos\truman.svg" />
+    <Content Include="assets\media\svg\brand-logos\tvit.svg" />
+    <Content Include="assets\media\svg\brand-logos\twitch.svg" />
+    <Content Include="assets\media\svg\brand-logos\twitter-2.svg" />
+    <Content Include="assets\media\svg\brand-logos\twitter.svg" />
+    <Content Include="assets\media\svg\brand-logos\typescript-1.svg" />
+    <Content Include="assets\media\svg\brand-logos\vimeo.svg" />
+    <Content Include="assets\media\svg\brand-logos\vodafone.svg" />
+    <Content Include="assets\media\svg\brand-logos\volicity-9.svg" />
+    <Content Include="assets\media\svg\brand-logos\vue-9.svg" />
+    <Content Include="assets\media\svg\brand-logos\xing-icon.svg" />
+    <Content Include="assets\media\svg\brand-logos\youtube-3.svg" />
+    <Content Include="assets\media\svg\brand-logos\youtube-play.svg" />
+    <Content Include="assets\media\svg\card-logos\american-express.svg" />
+    <Content Include="assets\media\svg\card-logos\mastercard.svg" />
+    <Content Include="assets\media\svg\card-logos\visa.svg" />
+    <Content Include="assets\media\svg\coins\binance.svg" />
+    <Content Include="assets\media\svg\coins\bitcoin.svg" />
+    <Content Include="assets\media\svg\coins\chainlink.svg" />
+    <Content Include="assets\media\svg\coins\coin.svg" />
+    <Content Include="assets\media\svg\coins\ethereum.svg" />
+    <Content Include="assets\media\svg\coins\filecoin.svg" />
+    <Content Include="assets\media\svg\files\ai-dark.svg" />
+    <Content Include="assets\media\svg\files\ai.svg" />
+    <Content Include="assets\media\svg\files\blank-image-dark.svg" />
+    <Content Include="assets\media\svg\files\blank-image.svg" />
+    <Content Include="assets\media\svg\files\css-dark.svg" />
+    <Content Include="assets\media\svg\files\css.svg" />
+    <Content Include="assets\media\svg\files\doc-dark.svg" />
+    <Content Include="assets\media\svg\files\doc.svg" />
+    <Content Include="assets\media\svg\files\folder-document-dark.svg" />
+    <Content Include="assets\media\svg\files\folder-document.svg" />
+    <Content Include="assets\media\svg\files\pdf-dark.svg" />
+    <Content Include="assets\media\svg\files\pdf.svg" />
+    <Content Include="assets\media\svg\files\sql-dark.svg" />
+    <Content Include="assets\media\svg\files\sql.svg" />
+    <Content Include="assets\media\svg\files\tif-dark.svg" />
+    <Content Include="assets\media\svg\files\tif.svg" />
+    <Content Include="assets\media\svg\files\upload.svg" />
+    <Content Include="assets\media\svg\files\xml-dark.svg" />
+    <Content Include="assets\media\svg\files\xml.svg" />
+    <Content Include="assets\media\svg\food-icons\cheeseburger.svg" />
+    <Content Include="assets\media\svg\food-icons\cheesecake.svg" />
+    <Content Include="assets\media\svg\food-icons\coffee.svg" />
+    <Content Include="assets\media\svg\food-icons\salad.svg" />
+    <Content Include="assets\media\svg\food-icons\spaghetti.svg" />
+    <Content Include="assets\media\svg\illustrations\easy\1-dark.svg" />
+    <Content Include="assets\media\svg\illustrations\easy\1.svg" />
+    <Content Include="assets\media\svg\illustrations\easy\2-dark.svg" />
+    <Content Include="assets\media\svg\illustrations\easy\2.svg" />
+    <Content Include="assets\media\svg\illustrations\easy\3-dark.svg" />
+    <Content Include="assets\media\svg\illustrations\easy\3.svg" />
+    <Content Include="assets\media\svg\illustrations\easy\5.svg" />
+    <Content Include="assets\media\svg\illustrations\easy\6.svg" />
+    <Content Include="assets\media\svg\illustrations\easy\7.svg" />
+    <Content Include="assets\media\svg\illustrations\landing.svg" />
+    <Content Include="assets\media\svg\misc\infography.svg" />
+    <Content Include="assets\media\svg\misc\octagon.svg" />
+    <Content Include="assets\media\svg\misc\smartphone-2-dark.svg" />
+    <Content Include="assets\media\svg\misc\smartphone-2.svg" />
+    <Content Include="assets\media\svg\misc\video-play.svg" />
+    <Content Include="assets\media\svg\products-categories\gaming.svg" />
+    <Content Include="assets\media\svg\products-categories\gloves.svg" />
+    <Content Include="assets\media\svg\products-categories\shoes.svg" />
+    <Content Include="assets\media\svg\products-categories\t-shirt.svg" />
+    <Content Include="assets\media\svg\products-categories\watch.svg" />
+    <Content Include="assets\media\svg\shapes\abstract-1-dark.svg" />
+    <Content Include="assets\media\svg\shapes\abstract-1.svg" />
+    <Content Include="assets\media\svg\shapes\abstract-2-dark.svg" />
+    <Content Include="assets\media\svg\shapes\abstract-2.svg" />
+    <Content Include="assets\media\svg\shapes\abstract-4-dark.svg" />
+    <Content Include="assets\media\svg\shapes\abstract-4.svg" />
+    <Content Include="assets\media\svg\shapes\bitcoin.svg" />
+    <Content Include="assets\media\svg\shapes\dogecoin.svg" />
+    <Content Include="assets\media\svg\shapes\ethereum.svg" />
+    <Content Include="assets\media\svg\shapes\wave-bg-purple.svg" />
+    <Content Include="assets\media\svg\shapes\wave-bg-red.svg" />
+    <Content Include="assets\media\svg\social-logos\facebook.svg" />
+    <Content Include="assets\media\svg\social-logos\google.svg" />
+    <Content Include="assets\media\svg\social-logos\twitter.svg" />
+    <Content Include="assets\plugins\custom\datatables\datatables.bundle.css" />
+    <Content Include="assets\plugins\custom\datatables\datatables.bundle.js" />
+    <Content Include="assets\plugins\datatable\css\buttons.dataTables.min.css" />
+    <Content Include="assets\plugins\datatable\css\jquery.dataTables.min.css" />
+    <Content Include="assets\plugins\datatable\img\sort_asc1.png" />
+    <Content Include="assets\plugins\datatable\img\sort_both1.png" />
+    <Content Include="assets\plugins\datatable\img\sort_desc1.png" />
+    <Content Include="assets\plugins\datatable\js\buttons.colVis.min.js" />
+    <Content Include="assets\plugins\datatable\js\buttons.html5.min.js" />
+    <Content Include="assets\plugins\datatable\js\buttons.print.min.js" />
+    <Content Include="assets\plugins\datatable\js\dataTables.buttons.min.js" />
+    <Content Include="assets\plugins\datatable\js\date-eu.js" />
+    <Content Include="assets\plugins\datatable\js\jquery.dataTables.min.js" />
+    <Content Include="assets\plugins\datatable\js\jszip.min.js" />
+    <Content Include="assets\plugins\datatable\js\pdfmake.min.js" />
+    <Content Include="assets\plugins\datatable\js\vfs_fonts.js" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-duotone41cf.svg" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-outlinefa73.svg" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-solidfacd.svg" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-brands-400.svg" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-regular-400.svg" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-solid-900.svg" />
+    <Content Include="assets\plugins\global\plugins.bundle.css" />
+    <Content Include="assets\plugins\global\plugins.bundle.js" />
+    <Content Include="Configuration_Module\js\User_Master.js" />
+    <Content Include="Configuration_Module\js\Validation.js" />
+    <Content Include="Configuration_Module\User_Master.aspx" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\util.css" />
+    <Content Include="Dashboards.aspx" />
+    <Content Include="GRN_Details.aspx" />
+    <Content Include="HO_Dashboard.aspx" />
+    <Content Include="HQ_Operations\Brand_Master.aspx" />
+    <Content Include="HQ_Operations\Category_Master.aspx" />
+    <Content Include="HQ_Operations\Department_Master.aspx" />
+    <Content Include="HQ_Operations\Designation_Master.aspx" />
+    <Content Include="HQ_Operations\EAN_Master.aspx" />
+    <Content Include="HQ_Operations\Employee_Master.aspx" />
+    <Content Include="HQ_Operations\HQ_Dashboard.aspx" />
+    <Content Include="HQ_Operations\HSN_Master.aspx" />
+    <Content Include="HQ_Operations\Inter_Branch_Transfer.aspx" />
+    <Content Include="HQ_Operations\js\Brand_Master.js" />
+    <Content Include="HQ_Operations\js\Category_Master.js" />
+    <Content Include="HQ_Operations\js\Department_Master.js" />
+    <Content Include="HQ_Operations\js\Designation_Master.js" />
+    <Content Include="HQ_Operations\js\EAN_Master.js" />
+    <Content Include="HQ_Operations\js\Employee_Master.js" />
+    <Content Include="HQ_Operations\js\Grid_Master.js" />
+    <Content Include="HQ_Operations\js\HQ_Work_Order_Creation.js" />
+    <Content Include="HQ_Operations\js\HSN_Master.js" />
+    <Content Include="HQ_Operations\js\Inter_Branch_Transfer.js" />
+    <Content Include="HQ_Operations\js\Location_Master.js" />
+    <Content Include="HQ_Operations\js\Logistics_Planning.js" />
+    <Content Include="HQ_Operations\js\Material_Master.js" />
+    <Content Include="HQ_Operations\js\Product_Master.js" />
+    <Content Include="HQ_Operations\js\Reader_Master.js" />
+    <Content Include="HQ_Operations\js\Sidebar_Panel.js" />
+    <Content Include="HQ_Operations\js\Stock_Movement.js" />
+    <Content Include="HQ_Operations\js\Store_Master.js" />
+    <Content Include="HQ_Operations\js\View_HU_Details.js" />
+    <Content Include="HQ_Operations\Tag_PO_Creation.aspx" />
+    <Content Include="HQ_Operations\View_HU_Details.aspx" />
+    <Content Include="images\techmi_icon.png" />
+    <Content Include="images\vyapti_logo.png" />
+    <Content Include="images\vyapti_logo_white.png" />
+    <Content Include="Store_Operations\js\View_GRC_Details.js" />
+    <Content Include="Store_Operations\Store_Operations_Dashboard.aspx" />
+    <Content Include="Store_Operations\View_GRC_Details.aspx" />
+    <Content Include="Vendor_Management_System\js\Tag_Creation.js" />
+    <Content Include="HQ_Operations\js\Tag_PO_Creation.js" />
+    <Content Include="HQ_Operations\js\Vendor_Master.js" />
+    <Content Include="HQ_Operations\js\View_Work_Order_Details.js" />
+    <Content Include="HQ_Operations\js\Warehouse_Master.js" />
+    <Content Include="HQ_Operations\Location_Master.aspx" />
+    <Content Include="HQ_Operations\Logistics_Planning.aspx" />
+    <Content Include="HQ_Operations\Material_Master.aspx" />
+    <Content Include="HQ_Operations\Product_Master.aspx" />
+    <Content Include="HQ_Operations\Reader_Master.aspx" />
+    <Content Include="HQ_Operations\Stock_Movement.aspx" />
+    <Content Include="HQ_Operations\Store_Registration.aspx" />
+    <Content Include="HQ_Operations\Tag_Creation.aspx" />
+    <Content Include="HQ_Operations\Tag_PO_Creation_Old.aspx" />
+    <Content Include="HQ_Operations\Vendor_Master.aspx" />
+    <Content Include="HQ_Operations\View_Work_Order_Details.aspx" />
+    <Content Include="HQ_Operations\Warehouse_Master.aspx" />
+    <Content Include="HQ_Operations\Work_Order_Creation.aspx" />
+    <Content Include="Invoice_Generation.aspx" />
+    <Content Include="Invoice_Receiving.aspx" />
+    <Content Include="Supplier_Management.aspx" />
+    <Content Include="Tag_PO_Creation.aspx" />
+    <Content Include="Vendor_Management_System\ASN_Details.aspx" />
+    <Content Include="Vendor_Management_System\js\ASN_Details.js" />
+    <Content Include="Vendor_Management_System\js\Grid_Details.js" />
+    <Content Include="Vendor_Management_System\js\Tag_Receive_Ack.js" />
+    <Content Include="Vendor_Management_System\Tag_Creation.aspx" />
+    <Content Include="Vendor_Management_System\Tag_Receive_Ack.aspx" />
+    <Content Include="Vendor_Management_System\Vendor_Dashboard.aspx" />
+    <Content Include="Vendor_Management_System\Work_Order_Details.aspx" />
+    <Content Include="View_Work_Order_Details.aspx" />
+    <Content Include="Reports_Dashboard.aspx" />
+    <Content Include="Store_Dashboard.aspx" />
+    <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="images\bg-01.jpg" />
+    <Content Include="images\icon.png" />
+    <Content Include="images\markss-logo-white.png" />
+    <Content Include="images\markss-logo.png" />
+    <Content Include="index.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="Warehouse_Dashboard.aspx" />
+    <Content Include="HQ_Operations\HU_Creation.aspx" />
+    <Content Include="Warehouse_Management_System\Inbound_Receiving.aspx" />
+    <Content Include="Warehouse_Management_System\js\Grid_Details.js" />
+    <Content Include="HQ_Operations\js\HU_Details.js" />
+    <Content Include="Warehouse_Management_System\js\View_HU_Details.js" />
+    <Content Include="Warehouse_Management_System\Putaway.aspx" />
+    <Content Include="Warehouse_Management_System\Quality_Check.aspx" />
+    <Content Include="Warehouse_Management_System\View_HU_Details.aspx" />
+    <Content Include="Warehouse_Management_System\View_Receiving_Details.aspx" />
+    <Content Include="Warehouse_Management_System\Warehouse_Dashboard.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration_Module\Config_Module.Master.cs">
+      <DependentUpon>Config_Module.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuration_Module\Config_Module.Master.designer.cs">
+      <DependentUpon>Config_Module.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration_Module\User_Master.aspx.cs">
+      <DependentUpon>User_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuration_Module\User_Master.aspx.designer.cs">
+      <DependentUpon>User_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboards.aspx.cs">
+      <DependentUpon>Dashboards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboards.aspx.designer.cs">
+      <DependentUpon>Dashboards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GRN_Details.aspx.cs">
+      <DependentUpon>GRN_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GRN_Details.aspx.designer.cs">
+      <DependentUpon>GRN_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HO_Dashboard.aspx.cs">
+      <DependentUpon>HO_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HO_Dashboard.aspx.designer.cs">
+      <DependentUpon>HO_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Brand_Master.aspx.cs">
+      <DependentUpon>Brand_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Brand_Master.aspx.designer.cs">
+      <DependentUpon>Brand_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Category_Master.aspx.cs">
+      <DependentUpon>Category_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Category_Master.aspx.designer.cs">
+      <DependentUpon>Category_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Department_Master.aspx.cs">
+      <DependentUpon>Department_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Department_Master.aspx.designer.cs">
+      <DependentUpon>Department_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Designation_Master.aspx.cs">
+      <DependentUpon>Designation_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Designation_Master.aspx.designer.cs">
+      <DependentUpon>Designation_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\EAN_Master.aspx.cs">
+      <DependentUpon>EAN_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\EAN_Master.aspx.designer.cs">
+      <DependentUpon>EAN_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Employee_Master.aspx.cs">
+      <DependentUpon>Employee_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Employee_Master.aspx.designer.cs">
+      <DependentUpon>Employee_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\HQ_Dashboard.aspx.cs">
+      <DependentUpon>HQ_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\HQ_Dashboard.aspx.designer.cs">
+      <DependentUpon>HQ_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\HQ_Operations.Master.cs">
+      <DependentUpon>HQ_Operations.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\HQ_Operations.Master.designer.cs">
+      <DependentUpon>HQ_Operations.Master</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\HSN_Master.aspx.cs">
+      <DependentUpon>HSN_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\HSN_Master.aspx.designer.cs">
+      <DependentUpon>HSN_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Inter_Branch_Transfer.aspx.cs">
+      <DependentUpon>Inter_Branch_Transfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Inter_Branch_Transfer.aspx.designer.cs">
+      <DependentUpon>Inter_Branch_Transfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Location_Master.aspx.cs">
+      <DependentUpon>Location_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Location_Master.aspx.designer.cs">
+      <DependentUpon>Location_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Logistics_Planning.aspx.cs">
+      <DependentUpon>Logistics_Planning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Logistics_Planning.aspx.designer.cs">
+      <DependentUpon>Logistics_Planning.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Material_Master.aspx.cs">
+      <DependentUpon>Material_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Material_Master.aspx.designer.cs">
+      <DependentUpon>Material_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Product_Master.aspx.cs">
+      <DependentUpon>Product_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Product_Master.aspx.designer.cs">
+      <DependentUpon>Product_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Reader_Master.aspx.cs">
+      <DependentUpon>Reader_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Reader_Master.aspx.designer.cs">
+      <DependentUpon>Reader_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Stock_Movement.aspx.cs">
+      <DependentUpon>Stock_Movement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Stock_Movement.aspx.designer.cs">
+      <DependentUpon>Stock_Movement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Store_Registration.aspx.cs">
+      <DependentUpon>Store_Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Store_Registration.aspx.designer.cs">
+      <DependentUpon>Store_Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Tag_Creation.aspx.cs">
+      <DependentUpon>Tag_Creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Tag_Creation.aspx.designer.cs">
+      <DependentUpon>Tag_Creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Tag_PO_Creation.aspx.cs">
+      <DependentUpon>Tag_PO_Creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Tag_PO_Creation.aspx.designer.cs">
+      <DependentUpon>Tag_PO_Creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Tag_PO_Creation_Old.aspx.cs">
+      <DependentUpon>Tag_PO_Creation_Old.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Tag_PO_Creation_Old.aspx.designer.cs">
+      <DependentUpon>Tag_PO_Creation_Old.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Vendor_Master.aspx.cs">
+      <DependentUpon>Vendor_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Vendor_Master.aspx.designer.cs">
+      <DependentUpon>Vendor_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\View_HU_Details.aspx.cs">
+      <DependentUpon>View_HU_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\View_HU_Details.aspx.designer.cs">
+      <DependentUpon>View_HU_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\View_Work_Order_Details.aspx.cs">
+      <DependentUpon>View_Work_Order_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\View_Work_Order_Details.aspx.designer.cs">
+      <DependentUpon>View_Work_Order_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Warehouse_Master.aspx.cs">
+      <DependentUpon>Warehouse_Master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Warehouse_Master.aspx.designer.cs">
+      <DependentUpon>Warehouse_Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\Work_Order_Creation.aspx.cs">
+      <DependentUpon>Work_Order_Creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\Work_Order_Creation.aspx.designer.cs">
+      <DependentUpon>Work_Order_Creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice_Generation.aspx.cs">
+      <DependentUpon>Invoice_Generation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Invoice_Generation.aspx.designer.cs">
+      <DependentUpon>Invoice_Generation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice_Receiving.aspx.cs">
+      <DependentUpon>Invoice_Receiving.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Invoice_Receiving.aspx.designer.cs">
+      <DependentUpon>Invoice_Receiving.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatelHelper.cs" />
+    <Compile Include="Store_Operations\Store_Operations.Master.cs">
+      <DependentUpon>Store_Operations.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store_Operations\Store_Operations.Master.designer.cs">
+      <DependentUpon>Store_Operations.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Store_Operations\Store_Operations_Dashboard.aspx.cs">
+      <DependentUpon>Store_Operations_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store_Operations\Store_Operations_Dashboard.aspx.designer.cs">
+      <DependentUpon>Store_Operations_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store_Operations\View_GRC_Details.aspx.cs">
+      <DependentUpon>View_GRC_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store_Operations\View_GRC_Details.aspx.designer.cs">
+      <DependentUpon>View_GRC_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier_Management.aspx.cs">
+      <DependentUpon>Supplier_Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supplier_Management.aspx.designer.cs">
+      <DependentUpon>Supplier_Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tag_PO_Creation.aspx.cs">
+      <DependentUpon>Tag_PO_Creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tag_PO_Creation.aspx.designer.cs">
+      <DependentUpon>Tag_PO_Creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor_Management_System\ASN_Details.aspx.cs">
+      <DependentUpon>ASN_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendor_Management_System\ASN_Details.aspx.designer.cs">
+      <DependentUpon>ASN_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor_Management_System\Tag_Creation.aspx.cs">
+      <DependentUpon>Tag_Creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendor_Management_System\Tag_Creation.aspx.designer.cs">
+      <DependentUpon>Tag_Creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor_Management_System\Tag_Receive_Ack.aspx.cs">
+      <DependentUpon>Tag_Receive_Ack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendor_Management_System\Tag_Receive_Ack.aspx.designer.cs">
+      <DependentUpon>Tag_Receive_Ack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor_Management_System\Vendor_Dashboard.aspx.cs">
+      <DependentUpon>Vendor_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendor_Management_System\Vendor_Dashboard.aspx.designer.cs">
+      <DependentUpon>Vendor_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor_Management_System\Vendor_Management.Master.cs">
+      <DependentUpon>Vendor_Management.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendor_Management_System\Vendor_Management.Master.designer.cs">
+      <DependentUpon>Vendor_Management.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor_Management_System\Work_Order_Details.aspx.cs">
+      <DependentUpon>Work_Order_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendor_Management_System\Work_Order_Details.aspx.designer.cs">
+      <DependentUpon>Work_Order_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View_Work_Order_Details.aspx.cs">
+      <DependentUpon>View_Work_Order_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View_Work_Order_Details.aspx.designer.cs">
+      <DependentUpon>View_Work_Order_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Dashboard.aspx.cs">
+      <DependentUpon>Reports_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Dashboard.aspx.designer.cs">
+      <DependentUpon>Reports_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store_Dashboard.aspx.cs">
+      <DependentUpon>Store_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store_Dashboard.aspx.designer.cs">
+      <DependentUpon>Store_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Retail_Suite.Master.cs">
+      <DependentUpon>Retail_Suite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Retail_Suite.Master.designer.cs">
+      <DependentUpon>Retail_Suite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse_Dashboard.aspx.cs">
+      <DependentUpon>Warehouse_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Warehouse_Dashboard.aspx.designer.cs">
+      <DependentUpon>Warehouse_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HQ_Operations\HU_Creation.aspx.cs">
+      <DependentUpon>HU_Creation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HQ_Operations\HU_Creation.aspx.designer.cs">
+      <DependentUpon>HU_Creation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\Inbound_Receiving.aspx.cs">
+      <DependentUpon>Inbound_Receiving.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\Inbound_Receiving.aspx.designer.cs">
+      <DependentUpon>Inbound_Receiving.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\Putaway.aspx.cs">
+      <DependentUpon>Putaway.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\Putaway.aspx.designer.cs">
+      <DependentUpon>Putaway.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\Quality_Check.aspx.cs">
+      <DependentUpon>Quality_Check.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\Quality_Check.aspx.designer.cs">
+      <DependentUpon>Quality_Check.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\View_HU_Details.aspx.cs">
+      <DependentUpon>View_HU_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\View_HU_Details.aspx.designer.cs">
+      <DependentUpon>View_HU_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\View_Receiving_Details.aspx.cs">
+      <DependentUpon>View_Receiving_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\View_Receiving_Details.aspx.designer.cs">
+      <DependentUpon>View_Receiving_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\Warehouse_Dashboard.aspx.cs">
+      <DependentUpon>Warehouse_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\Warehouse_Dashboard.aspx.designer.cs">
+      <DependentUpon>Warehouse_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\Warehouse_Management.Master.cs">
+      <DependentUpon>Warehouse_Management.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Warehouse_Management_System\Warehouse_Management.Master.designer.cs">
+      <DependentUpon>Warehouse_Management.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="fonts\ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="fonts\ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="assets\fonts\flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2" />
+    <Content Include="assets\Login_files\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="assets\Login_files\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="assets\Login_files\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="assets\Login_files\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="assets\Login_files\fonts\font-awesome-4.7.0\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="assets\Login_files\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="assets\Login_files\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="assets\Login_files\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="assets\Login_files\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="assets\Login_files\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="assets\Login_files\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="assets\Login_files\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="assets\plugins\global\fonts\bootstrap-icons\bootstrap-icons04d5.woff" />
+    <Content Include="assets\plugins\global\fonts\bootstrap-icons\bootstrap-icons04d5.woff2" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-duotone41cf.eot" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-duotone41cf.ttf" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-duotone41cf.woff" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-outlinefa73.eot" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-outlinefa73.ttf" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-outlinefa73.woff" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-solidfacd.eot" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-solidfacd.ttf" />
+    <Content Include="assets\plugins\global\fonts\keenicons\keenicons-solidfacd.woff" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-brands-400.eot" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-brands-400.ttf" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-brands-400.woff" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-brands-400.woff2" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-brands-400d41d.eot" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-regular-400.eot" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-regular-400.ttf" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-regular-400.woff" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-regular-400.woff2" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-regular-400d41d.eot" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-solid-900.eot" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-solid-900.ttf" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-solid-900.woff" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-solid-900.woff2" />
+    <Content Include="assets\plugins\global\fonts\line-awesome\la-solid-900d41d.eot" />
+    <Content Include="HQ_Operations\HQ_Operations.Master" />
+    <Content Include="Configuration_Module\Config_Module.Master" />
+    <None Include="packages.config" />
+    <Content Include="Retail_Suite.Master" />
+    <Content Include="Vendor_Management_System\Vendor_Management.Master" />
+    <Content Include="Warehouse_Management_System\Warehouse_Management.Master" />
+    <Content Include="Store_Operations\Store_Operations.Master" />
+    <Content Include="Vendor_Management_System\Download_Template\ASN_Tag_File.csv" />
+    <Content Include="Vendor_Management_System\Download_Template\Tag_Creation_File.csv" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58440</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44381/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
