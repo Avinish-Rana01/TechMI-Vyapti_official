@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="QueryStringEncryption">
-      <HintPath>C:\Users\Manish\Desktop\Rahullll\Order_Portal_code_Latest\Bin\QueryStringEncryption.dll</HintPath>
+      <HintPath>lib\QueryStringEncryption.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
