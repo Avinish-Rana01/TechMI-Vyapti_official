@@ -75,7 +75,7 @@
                             <!--end::Heaeder menu toggle-->
                             <!--begin::Header Logo-->
                             <div class="header-logo me-5 flex-grow-1 flex-lg-grow-0">
-                                <a href="#">
+                                <a href="../index.aspx" title="Return to Portal Hub">
                                     <img alt="Logo" src="../images/vyapti_logo_white.png" class="logo-default h-50px" />
                                     <img alt="Logo" src="../images/vyapti_logo.png" class="logo-sticky h-50px" />
                                 </a>
@@ -446,6 +446,13 @@
                                 <!--end::Navbar-->
                                 <!--begin::Toolbar wrapper-->
                                 <div class="topbar d-flex align-items-stretch flex-shrink-0">
+                                    <!--begin::Back to Hub-->
+                                    <div class="d-flex align-items-center me-3">
+                                        <a href="../index.aspx" class="btn btn-sm btn-light-primary fw-bold d-flex align-items-center px-3 py-2" title="Back to Portal Hub">
+                                            <i class="fa fa-arrow-left me-1"></i> Back to Hub
+                                        </a>
+                                    </div>
+                                    <!--end::Back to Hub-->
                                     <div class="d-flex align-items-center ms-1" id="kt_header_user_menu_toggle">
                                         <!--begin::User info-->
                                         <div class="btn btn-flex align-items-center bg-hover-white bg-hover-opacity-10 py-2 ps-2 pe-2 me-n2" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
