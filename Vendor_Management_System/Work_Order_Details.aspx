@@ -53,19 +53,15 @@
 
                                     <asp:TemplateField HeaderText="PO No">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="lnkPONo"
-                                                runat="server"
-                                                CssClass="text-theme-green"
-                                                Text='<%# Eval("PO_NO") %>'
-                                                CommandArgument='<%# Eval("PO_NO") %>'
-                                                OnClick="lnkPONo_Click">
-                                            </asp:LinkButton>
+                                           <asp:LinkButton ID="lnkPONo" runat="server" CssClass="text-theme-green" Text='<%# Eval("PO_NO") %>' CommandArgument='<%# Eval("PO_NO") %>' OnClick="lnkPONo_Click"> </asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
                                     <asp:BoundField DataField="WODt" HeaderText="PO Date" />
 
                                     <asp:BoundField DataField="WO_Line_Item_Qty" HeaderText="PO Line Item Qty" />
+
+                                    <asp:BoundField DataField="PO_STATUS" HeaderText="PO Status" />
 
                                 </Columns>
 

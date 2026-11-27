@@ -60,13 +60,22 @@ namespace Markss_Retail_Suite.Store_Operations
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl View_GRC_Dtl;
 
         /// <summary>
-        /// Outward_Ops control.
+        /// Trial_Sense control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Outward_Ops;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Trial_Sense;
+
+        /// <summary>
+        /// Div4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div4;
 
         /// <summary>
         /// POS_Checkout control.
@@ -76,6 +85,15 @@ namespace Markss_Retail_Suite.Store_Operations
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl POS_Checkout;
+
+        /// <summary>
+        /// Div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
 
         /// <summary>
         /// Anti_Theft control.

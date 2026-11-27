@@ -23,11 +23,14 @@ namespace Markss_Retail_Suite.Vendor_Management_System
                 {
                     lblVendorMenuName.Value = Session["MenuText"].ToString();
                     lbl_Username.Text = Session["UserName"].ToString();
-                    lbl_User.Text = Session["UserName"].ToString();
-                    lbl_Designation.Text = Session["DESIGNATION"].ToString();
+                    //lbl_User.Text = Session["UserName"].ToString();
+                    //lbl_Designation.Text = Session["DESIGNATION"].ToString();
                     lbl_Department.Text = Session["DEPT_NAME"].ToString();
-                    lbl_Emailid.Text = Session["EMAIL_ID"].ToString();
+                    lbl_Designation.Text = Session["VENDOR_NAME"].ToString();
+                    //lbl_Emailid.Text = Session["EMAIL_ID"].ToString();
                     BIND_ACCESS_MENU(Session["MenuText"].ToString());
+
+                    lbl_Designation.Attributes["style"] += "font-size:12px!important;font-weight:500;";
                 }
                 else
                 {

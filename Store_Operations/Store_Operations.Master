@@ -75,7 +75,7 @@
                             <!--end::Heaeder menu toggle-->
                             <!--begin::Header Logo-->
                             <div class="header-logo me-5 flex-grow-1 flex-lg-grow-0">
-                                <a href="#">
+                                <a href="../index.aspx" title="Return to Hub / Switch Module">
                                     <img alt="Logo" src="../images/vyapti_logo_white.png" class="logo-default h-50px" />
                                     <img alt="Logo" src="../images/vyapti_logo.png" class="logo-sticky h-50px" />
                                 </a>
@@ -162,9 +162,44 @@
 
 
 
+                                                <div runat="server" id="Trial_Sense" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                                                    class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" visible="false">
+                                                    <%--<a href="<%= AntiTheft %>" class="menu-link Anti_Theft"> </a>--%>
+                                                   <%-- <span class="menu-link py-3 Anti_Theft" id="Anti_Theft_Operations">
+                                                        <span class="menu-title">Anti-Theft</span>
+                                                        <span class="menu-arrow d-lg-none"></span>
+                                                    </span>--%>
+                                                    <a href="<%= TrialSense %>" class="menu-link py-3">
+                                                        <span class="menu-title">Trial Sense</span>
+                                                    </a>
+                                                    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown p-0">
+                                                        <!--begin:Dashboards menu-->
+                                                        <div class="menu-state-bg menu-extended overflow-hidden" data-kt-menu-dismiss="true">
+                                                            <!--begin:Row-->
+                                                            <div class="row">
+                                                                
+                                                                <div class="col-lg-12 mb-1" id="Div4" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <%--<a href="Work_Order_Creation.aspx" class="menu-link POS_Checkout">--%>
+                                                                        <a href="<%= TrialSense %>" class="menu-link Trial_Sense"> 
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-file-alt fs-1"></i>
+                                                                            </span>
+                                                                            <span class="d-flex flex-column">
+                                                                                <span class="fs-4">Trial Sense</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
 
 
-                                                <div runat="server" id="Outward_Ops" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                                                <%--<div runat="server" id="Outward_Ops" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                                                     class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" visible="false">
                                                     <span class="menu-link py-3 Outward_Operations" id="Outward_Operations">
                                                         <span class="menu-title">Outward Operations</span>
@@ -178,7 +213,7 @@
                                                                 
                                                                 <div class="col-lg-12 mb-1" id="POS_Checkout" runat="server" visible="false">
                                                                     <div class="menu-item p-0 m-0">
-                                                                        <%--<a href="Work_Order_Creation.aspx" class="menu-link POS_Checkout">--%>
+                                                                      
                                                                         <a href="<%= POSCheckout %>" class="menu-link POS_Checkout">
                                                                             <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
                                                                                 <i class="fa fa-file-alt fs-1"></i>
@@ -190,21 +225,41 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <%--<div class="col-lg-12" id="View_Work_Id" runat="server" visible="false">
-                                                                    <div class="menu-item p-0 m-0">
-                                                                        <a href="View_Work_Order_Details.aspx" class="menu-link ">
-                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
-                                                                                <i class="fa fa-file-excel fs-1"></i>
-                                                                            </span>
+                                                            </div>
 
+                                                        </div>
+                                                    </div>
+                                                </div>--%>
+
+                                                <div runat="server" id="POS_Checkout" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                                                    class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" visible="false">
+                                                    <%--<a href="<%= AntiTheft %>" class="menu-link Anti_Theft"> </a>--%>
+                                                   <%-- <span class="menu-link py-3 Anti_Theft" id="Anti_Theft_Operations">
+                                                        <span class="menu-title">Anti-Theft</span>
+                                                        <span class="menu-arrow d-lg-none"></span>
+                                                    </span>--%>
+                                                    <a href="<%= AntiTheft %>" class="menu-link py-3">
+                                                        <span class="menu-title">POS Checkout</span>
+                                                    </a>
+                                                    <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown p-0">
+                                                        <!--begin:Dashboards menu-->
+                                                        <div class="menu-state-bg menu-extended overflow-hidden" data-kt-menu-dismiss="true">
+                                                            <!--begin:Row-->
+                                                            <div class="row">
+                                                                
+                                                                <div class="col-lg-12 mb-1" id="Div1" runat="server" visible="false">
+                                                                    <div class="menu-item p-0 m-0">
+                                                                        <%--<a href="Work_Order_Creation.aspx" class="menu-link POS_Checkout">--%>
+                                                                        <a href="<%= POSCheckout %>" class="menu-link Anti_Theft"> 
+                                                                            <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded me-3">
+                                                                                <i class="fa fa-file-alt fs-1"></i>
+                                                                            </span>
                                                                             <span class="d-flex flex-column">
-                                                                                <span class="fs-4">View Work Order Details</span>
+                                                                                <span class="fs-4">POS Checkout</span>
                                                                             </span>
                                                                         </a>
                                                                     </div>
-                                                                </div>--%>
-
-                                                               
+                                                                </div>
 
                                                             </div>
 
@@ -323,6 +378,13 @@
                                 <!--end::Navbar-->
                                 <!--begin::Toolbar wrapper-->
                                 <div class="topbar d-flex align-items-stretch flex-shrink-0">
+                                    <!--begin::Back to Hub-->
+                                    <div class="d-flex align-items-center me-3">
+                                        <a href="../index.aspx" class="btn btn-sm btn-light-primary fw-bold d-flex align-items-center px-3 py-2" title="Back to Portal Hub">
+                                            <i class="fa fa-arrow-left me-1"></i> Back to Main Menu
+                                        </a>
+                                    </div>
+                                    <!--end::Back to Hub-->
                                     <div class="d-flex align-items-center ms-1" id="kt_header_user_menu_toggle">
                                         <!--begin::User info-->
                                         <div class="btn btn-flex align-items-center bg-hover-white bg-hover-opacity-10 py-2 ps-2 pe-2 me-n2" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">

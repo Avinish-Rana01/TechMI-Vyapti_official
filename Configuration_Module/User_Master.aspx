@@ -449,6 +449,14 @@
 
                                              <hr />
 
+                                            <asp:CheckBox ID="chkTrialSense" runat="server" Text="Trial Sense" AutoPostBack="true"  OnCheckedChanged="chkTrialSense_CheckedChanged" />
+
+                                            <asp:CheckBoxList ID="chkTrialSenseSub" runat="server" CssClass="checkbox_list">
+                                                <asp:ListItem Text="Trial Sense" />
+                                            </asp:CheckBoxList>
+
+                                            <hr />
+
                                             <asp:CheckBox ID="chkOutwardOps" runat="server" Text="Outward Operations" AutoPostBack="true" OnCheckedChanged="chkOutwardOps_CheckedChanged" />
 
                                             <asp:CheckBoxList ID="chkOutwardOpsSub" runat="server" CssClass="checkbox_list">

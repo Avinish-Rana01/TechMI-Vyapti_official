@@ -365,6 +365,12 @@ namespace Markss_Retail_Suite.Configuration_Module
                 if (chkOutwardOps.Checked)
                     var_menu += chkOutwardOps.Text + ",";
 
+                if (chkAntiTheft.Checked)
+                    var_menu += chkAntiTheft.Text + ",";
+
+                if (chkTrialSense.Checked)
+                    var_menu += chkTrialSense.Text + ",";
+
                 var allSelected = chkMDMSub.Items.Cast<ListItem>().Where(i => i.Selected).Select(i => i.Value)
                     .Concat(chkProcurementSub.Items.Cast<ListItem>().Where(i => i.Selected).Select(i => i.Value))
                     .Concat(chkWDMSub.Items.Cast<ListItem>().Where(i => i.Selected).Select(i => i.Value))
@@ -375,7 +381,8 @@ namespace Markss_Retail_Suite.Configuration_Module
                     .Concat(chkRevLogSub.Items.Cast<ListItem>().Where(i => i.Selected).Select(i => i.Value))
                     .Concat(chkInwOpSub.Items.Cast<ListItem>().Where(i => i.Selected).Select(i => i.Value))
                     .Concat(chkWHInwOpSub.Items.Cast<ListItem>().Where(i => i.Selected).Select(i => i.Value))
-                    .Concat(chkOutwardOpsSub.Items.Cast<ListItem>().Where(i => i.Selected).Select(i => i.Value));
+                    .Concat(chkOutwardOpsSub.Items.Cast<ListItem>().Where(i => i.Selected).Select(i => i.Value))
+                    .Concat(chkTrialSenseSub.Items.Cast<ListItem>().Where(i => i.Selected).Select(i => i.Value));
 
                 var_sub_menu = string.Join(",", allSelected);
 
@@ -820,6 +827,7 @@ namespace Markss_Retail_Suite.Configuration_Module
                 chkWHInwOp.Checked = false;
                 chkOutwardOps.Checked = false;
                 chkAntiTheft.Checked = false;
+                chkTrialSense.Checked = false;
 
                 // =========================================================
                 // MENUS
@@ -893,6 +901,11 @@ namespace Markss_Retail_Suite.Configuration_Module
                         if (chkAntiTheft.Text.Trim().Equals(menuName, StringComparison.OrdinalIgnoreCase))
                         {
                             chkAntiTheft.Checked = true;
+                        }
+
+                        if (chkTrialSense.Text.Trim().Equals(menuName, StringComparison.OrdinalIgnoreCase))
+                        {
+                            chkTrialSense.Checked = true;
                         }
 
                     }
@@ -1004,6 +1017,11 @@ namespace Markss_Retail_Suite.Configuration_Module
                     }
 
                     foreach (ListItem item in chkAntiTheftSub.Items)
+                    {
+                        item.Selected = selectedSubMenus.Any(x => x.Trim().Equals(item.Text.Trim(), StringComparison.OrdinalIgnoreCase));
+                    }
+
+                    foreach (ListItem item in chkTrialSenseSub.Items)
                     {
                         item.Selected = selectedSubMenus.Any(x => x.Trim().Equals(item.Text.Trim(), StringComparison.OrdinalIgnoreCase));
                     }
@@ -1279,6 +1297,9 @@ namespace Markss_Retail_Suite.Configuration_Module
                     chkAntiTheft.Checked = true;
                     ToggleSubModules(chkAntiTheftSub, true);
 
+                    chkTrialSense.Checked = true;
+                    ToggleSubModules(chkTrialSenseSub, true);
+
 
                 }
                 else if (ddlRole.SelectedItem.Text.Trim().Contains("HQ"))
@@ -1370,6 +1391,9 @@ namespace Markss_Retail_Suite.Configuration_Module
                     chkAntiTheft.Checked = true;
                     ToggleSubModules(chkAntiTheftSub, true);
 
+                    chkTrialSense.Checked = true;
+                    ToggleSubModules(chkTrialSenseSub, true);
+
                 }
 
                 // PANELS                
@@ -1409,6 +1433,7 @@ namespace Markss_Retail_Suite.Configuration_Module
             {
                 grdUserMaster.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
+
             //// MAIN MODULES
             //chkConfiguration.Checked = val;
             //chkHQ.Checked = val;
@@ -1728,13 +1753,7 @@ namespace Markss_Retail_Suite.Configuration_Module
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock(
-                    this,
-                    this.GetType(),
-                    "alertMessage",
-                    "alert('" + ex.Message.Replace("'", "\\'") + "')",
-                    true
-                );
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + ex.Message.Replace("'", "\\'") + "')", true);
             }
         }
 
@@ -1762,13 +1781,7 @@ namespace Markss_Retail_Suite.Configuration_Module
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock(
-                    this,
-                    this.GetType(),
-                    "alertMessage",
-                    "alert('" + ex.Message.Replace("'", "\\'") + "')",
-                    true
-                );
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + ex.Message.Replace("'", "\\'") + "')", true);
             }
         }
 
@@ -1780,12 +1793,7 @@ namespace Markss_Retail_Suite.Configuration_Module
 
                 parameters.Add(new SqlParameter("@ACTION", "DD_WAREHOUSE_MASTER"));
 
-                DataSet ds = SqlHelper.ExecuteDataset(
-                    ConnStr,
-                    CommandType.StoredProcedure,
-                    SP_Name,
-                    parameters.ToArray()
-                );
+                DataSet ds = SqlHelper.ExecuteDataset(ConnStr, CommandType.StoredProcedure, SP_Name, parameters.ToArray());
 
                 ddlStoreWarehouse.DataSource = ds.Tables[0];
                 ddlStoreWarehouse.DataTextField = "WAREHOUSE_NAME";
@@ -1796,13 +1804,7 @@ namespace Markss_Retail_Suite.Configuration_Module
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock(
-                    this,
-                    this.GetType(),
-                    "alertMessage",
-                    "alert('" + ex.Message.Replace("'", "\\'") + "')",
-                    true
-                );
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + ex.Message.Replace("'", "\\'") + "')", true);
             }
         }
 
@@ -1834,11 +1836,7 @@ namespace Markss_Retail_Suite.Configuration_Module
                 Para.Add(
                     new SqlParameter("@Action", "GET_DROPDOWN"));
 
-                DataSet ds = SqlHelper.ExecuteDataset(
-                    ConnStr,
-                    CommandType.StoredProcedure,
-                    Employee_SP_Name,
-                    Para.ToArray());
+                DataSet ds = SqlHelper.ExecuteDataset(ConnStr, CommandType.StoredProcedure, Employee_SP_Name, Para.ToArray());
 
                 if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
@@ -1847,27 +1845,18 @@ namespace Markss_Retail_Suite.Configuration_Module
                     ddlEmployeeName.DataValueField = "EMP_ID";
                     ddlEmployeeName.DataBind();
 
-                    ddlEmployeeName.Items.Insert(
-                        0,
-                        new ListItem("Select Employee", ""));
+                    ddlEmployeeName.Items.Insert(0, new ListItem("Select Employee", ""));
                 }
                 else
                 {
                     ddlEmployeeName.Items.Clear();
 
-                    ddlEmployeeName.Items.Insert(
-                        0,
-                        new ListItem("Select Employee", ""));
+                    ddlEmployeeName.Items.Insert(0, new ListItem("Select Employee", ""));
                 }
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock(
-                    this,
-                    this.GetType(),
-                    "alertMessage",
-                    "alert('" + ex.Message + "')",
-                    true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + ex.Message + "')", true);
             }
         }
 
@@ -1956,6 +1945,17 @@ namespace Markss_Retail_Suite.Configuration_Module
         protected void chkAntiTheft_CheckedChanged(object sender, EventArgs e)
         {
             ToggleSubModules(chkAntiTheftSub, chkAntiTheft.Checked);
+            if (grdUserMaster.Rows.Count > 0)
+            {
+                grdUserMaster.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
+        }
+
+
+        protected void chkTrialSense_CheckedChanged(object sender, EventArgs e)
+        {
+            ToggleSubModules(chkTrialSenseSub, chkTrialSense.Checked);
+
             if (grdUserMaster.Rows.Count > 0)
             {
                 grdUserMaster.HeaderRow.TableSection = TableRowSection.TableHeader;
