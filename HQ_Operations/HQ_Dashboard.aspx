@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HQ_Operations/HQ_Operations.Master" AutoEventWireup="true" CodeBehind="HQ_Dashboard.aspx.cs" Inherits="Markss_Retail_Suite.HQ_Operations.Dashboard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>HO Operations | HQ Operations Dashboard</title>
+    <title>HQ Operations | HQ Operations Dashboard</title>
     <style type="text/css">
         body {
             background: #d0dbe1;
@@ -15,9 +15,9 @@
     <div id="kt_toolbar_container" class=" container-xxl  d-flex flex-stack flex-wrap">
         <div class="page-title d-flex flex-column me-3 flex-start">
             <h1 class="d-flex text-white m-0 fs-3">
-                <asp:Label ID="lblMenuName" runat="server"></asp:Label>      
+                <asp:Label ID="lblMenuName" runat="server" Text="HQ Operations"></asp:Label>      
                 <span class="h-20px border-gray-500 border-start mx-3"></span>
-                <asp:Label ID="lblPageName" runat="server" Text="HO Operations Dashboard"></asp:Label>      
+                <asp:Label ID="lblPageName" runat="server" Text="HQ Operations Dashboard"></asp:Label>         
             </h1>
         </div>
 
@@ -27,7 +27,17 @@
     </div>
 </div>
 
-<div id="kt_content_container" class="d-flex flex-column-fluid align-items-start  container-xxl">
+        <div id="kt_content_container" class="d-flex flex-column-fluid align-items-start  container-xxl">
+        <div class="content flex-row-fluid" id="kt_content" style="padding-top:33px;">
+           <div class="card card-flush">
+                <div class="card-body">
+                    <h3 class="text-center">HQ OPERATIONS DASHBOARD</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%--<div id="kt_content_container" class="d-flex flex-column-fluid align-items-start  container-xxl">
         <div class="content flex-row-fluid" id="kt_content">
           <div class="row">
               <div class="col-md-12 col-lg-4">
@@ -232,7 +242,7 @@
           </div>
            
         </div>
-    </div>
+    </div>--%>
 
 <script type="text/javascript" src="../assets/chart_js/highcharts.js"></script>
 <script type="text/javascript" src="../assets/chart_js/data.js"></script>
@@ -241,7 +251,7 @@
 <script type="text/javascript" src="../assets/chart_js/highcharts-3d.js"></script>
 <script type="text/javascript" src="../assets/chart_js/jquery.easypiechart.min.js"></script>
 
-<script type="text/javascript">
+<%--<script type="text/javascript">
     
     function getRandomColor() {
         return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
@@ -310,5 +320,7 @@
             }
         }
     });
-</script>
+</script>--%>
+
+
 </asp:Content>

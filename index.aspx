@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Markss_Retail_Suite.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Markss_Retail_Suite.index" %>
 
 <!DOCTYPE html>
 
@@ -78,9 +78,9 @@
                                 <img src="images/vyapti_logo.png" alt="logo" title="Markss Infotech Ltd" class="img-fluid" style="max-width:150px"/>
                             </div>
                             <div class="py-10">
-                                <div class="mb-5">
+                                <%--<div class="mb-5">
                                     <h3 class="text-center login-title text-uppercase">RETAIL SUITE</h3>
-                                </div>
+                                </div>--%>
                                 <div class="hr-sect mb-5">
                                     SIGN IN
                                 </div>

@@ -49,12 +49,18 @@ namespace Markss_Retail_Suite
             pnlModules.Visible = true;
 
             lblLoggedUser.Text = Session["UserName"] != null ? Session["UserName"].ToString() : "User";
+
             string roleDisplay = Convert.ToString(Session["ROLE_NAME"]);
+            string vendorName = Convert.ToString(Session["VENDOR_NAME"]);
+
             if (string.IsNullOrWhiteSpace(roleDisplay))
             {
                 roleDisplay = Convert.ToString(Session["USER_TYPE"]);
             }
-            lblRole.Text = !string.IsNullOrWhiteSpace(roleDisplay) ? roleDisplay : "Staff";
+
+            //lblRole.Text = !string.IsNullOrWhiteSpace(roleDisplay) ? roleDisplay : "Staff";
+            lblRole.Text = roleDisplay?.Equals("Vendor", StringComparison.OrdinalIgnoreCase) == true ? $"{vendorName}" : (string.IsNullOrWhiteSpace(roleDisplay) 
+                ? "Staff" : roleDisplay);
 
             ConfigureCardsByPermissions();
         }
@@ -129,9 +135,8 @@ namespace Markss_Retail_Suite
                 }
 
                 // 2. Execute SP_MASTER LOGIN_CHECK (VMS route targets TBL_VENDOR_MASTER; other routes target TBL_USER_MASTER)
-                string targetModule = isVendorAccount
-                    ? "Vendor Management System"
-                    : (!string.IsNullOrEmpty(firstNonVmsModule) ? firstNonVmsModule : "HQ Operations");
+                string targetModule = isVendorAccount ? "Vendor Management System" : (!string.IsNullOrEmpty(firstNonVmsModule) ? firstNonVmsModule : "HQ Operations");
+
                 List<SqlParameter> loginParams = new List<SqlParameter>
                 {
                     new SqlParameter("@Action", "LOGIN_CHECK"),
@@ -159,6 +164,7 @@ namespace Markss_Retail_Suite
                         Session["DEPT_NAME"] = row["DEPT_NAME"] != DBNull.Value ? row["DEPT_NAME"].ToString() : "";
                         Session["USER_TYPE"] = row["USER_TYPE"] != DBNull.Value ? row["USER_TYPE"].ToString() : "";
                         Session["DESIGNATION"] = row["DESIGNATION"] != DBNull.Value ? row["DESIGNATION"].ToString() : "";
+                        
 
                         if (Convert.ToString(Session["USER_TYPE"]) != "Tag Vendor" && Convert.ToString(Session["USER_TYPE"]) != "Vendor")
                         {
@@ -167,6 +173,11 @@ namespace Markss_Retail_Suite
                             Session["ROLE_ID"] = row["ROLE_ID"] != DBNull.Value ? row["ROLE_ID"].ToString() : "";
                             Session["STORE_ID"] = row["STORE_ID"] != DBNull.Value ? row["STORE_ID"].ToString() : "";
                             Session["WAREHOUSE_ID"] = row["WAREHOUSE_ID"] != DBNull.Value ? row["WAREHOUSE_ID"].ToString() : "";
+                            //Session["VENDOR_NAME"] = row["VENDOR_NAME"] != DBNull.Value ? row["VENDOR_NAME"].ToString() : "";
+                        }
+                        else
+                        {
+                            Session["VENDOR_NAME"] = row["VENDOR_NAME"] != DBNull.Value ? row["VENDOR_NAME"].ToString() : "";
                         }
 
                         // Store actual allowed modules from database into session

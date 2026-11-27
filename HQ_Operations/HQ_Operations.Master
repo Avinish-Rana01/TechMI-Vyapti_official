@@ -343,7 +343,7 @@
                                                 <div runat="server" id="Warehouse_Management_Id" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                                                     class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2" visible="false">
                                                     <span class="menu-link py-3 Warehouse_Operations" id="Warehouse_Operations">
-                                                        <span class="menu-title">Warehouse & Management</span>
+                                                        <span class="menu-title">Warehouse Management</span>
                                                         <span class="menu-arrow d-lg-none"></span>
                                                     </span>
                                                     <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown p-0">
@@ -449,7 +449,7 @@
                                     <!--begin::Back to Hub-->
                                     <div class="d-flex align-items-center me-3">
                                         <a href="../index.aspx" class="btn btn-sm btn-light-primary fw-bold d-flex align-items-center px-3 py-2" title="Back to Portal Hub">
-                                            <i class="fa fa-arrow-left me-1"></i> Back to Hub
+                                            <i class="fa fa-arrow-left me-1"></i> Back to Main Menu
                                         </a>
                                     </div>
                                     <!--end::Back to Hub-->

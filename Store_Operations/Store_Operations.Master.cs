@@ -54,6 +54,14 @@ namespace Markss_Retail_Suite.Store_Operations
             }
         }
 
+        protected string TrialSense
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["Trial-Sense"];
+            }
+        }
+
         public void BIND_ACCESS_MENU(string Module)
         {
             try
@@ -81,11 +89,17 @@ namespace Markss_Retail_Suite.Store_Operations
                         }
                         if (SelectedMenu.Any(x => x.Trim().Equals("Outward Operations", StringComparison.OrdinalIgnoreCase)))
                         {
-                            Outward_Ops.Visible = true;
+                            //Outward_Ops.Visible = true;
                         }
                         if (SelectedMenu.Any(x => x.Trim().Equals("Anti Theft", StringComparison.OrdinalIgnoreCase)))
                         {
                             Anti_Theft.Visible = true;
+                        }
+                        if (SelectedMenu.Any(x => x.Trim().Equals("Trial Sense", StringComparison.OrdinalIgnoreCase)))
+                        {
+                            //Outward_Ops.Visible = true;
+                            //POS_Checkout.Visible = true;
+                            Trial_Sense.Visible = true;
                         }
 
                     }
@@ -107,10 +121,13 @@ namespace Markss_Retail_Suite.Store_Operations
                         {
                             Anti_Theft.Visible = true;
                         }
-                        
+                        if (SelectedSubMenu.Any(x => x.Trim().Equals("Trial Sense", StringComparison.OrdinalIgnoreCase)))
+                        {
+                            Trial_Sense.Visible = true;
+                        }
 
 
-                        
+
                     }
                 }
                 else

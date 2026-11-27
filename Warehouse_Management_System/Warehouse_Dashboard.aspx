@@ -14,7 +14,7 @@
     <div id="kt_toolbar_container" class=" container-xxl  d-flex flex-stack flex-wrap">
         <div class="page-title d-flex flex-column me-3 flex-start">
             <h1 class="d-flex text-white m-0 fs-3">
-                <asp:Label ID="lblMenuName" runat="server"></asp:Label>      
+                <asp:Label ID="lblMenuName" runat="server" Text="Warehouse Management System"></asp:Label>      
                 <span class="h-20px border-gray-500 border-start mx-3"></span>
                 <asp:Label ID="lblPageName" runat="server" Text="Warehouse Dashboard"></asp:Label>      
             </h1>

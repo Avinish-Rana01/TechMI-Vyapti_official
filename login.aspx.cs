@@ -55,7 +55,7 @@ namespace Markss_Retail_Suite
 
                         if (Convert.ToString(Session["USER_TYPE"]) == "Tag Vendor" || Convert.ToString(Session["USER_TYPE"]) == "Vendor")
                         {
-
+                            Session["VENDOR_NAME"] = ds.Tables[0].Rows[0]["VENDOR_NAME"].ToString();
                         }
                         else 
                         {
